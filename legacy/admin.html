@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | Dirre Senior Home</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700&family=Source+Sans+3:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <strong>Dirre Senior Home</strong>
+          <span>Content admin (UI preview)</span>
+        </div>
+        <nav class="admin-nav" aria-label="Admin sections">
+          <button type="button" class="is-active" data-admin-tab="dashboard">Dashboard</button>
+          <button type="button" data-admin-tab="posts">Posts</button>
+          <button type="button" data-admin-tab="pages">Pages</button>
+        </nav>
+        <div class="admin-sidebar-footer">
+          <a href="index.html">← Back to website</a>
+        </div>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <h1 data-admin-title>Dashboard</h1>
+          <div class="admin-topbar-actions">
+            <span class="admin-badge">UI only — not connected</span>
+            <button type="button" class="button button-primary">Save changes</button>
+          </div>
+        </header>
+
+        <div class="admin-content">
+          <!-- Dashboard -->
+          <section class="admin-panel is-active" id="panel-dashboard" aria-labelledby="admin-title-dashboard">
+            <div class="admin-stats">
+              <div class="admin-stat">
+                <span>Posts</span>
+                <strong>6</strong>
+              </div>
+              <div class="admin-stat">
+                <span>Pages</span>
+                <strong>6</strong>
+              </div>
+              <div class="admin-stat">
+                <span>Published</span>
+                <strong>10</strong>
+              </div>
+              <div class="admin-stat">
+                <span>Drafts</span>
+                <strong>2</strong>
+              </div>
+            </div>
+            <div class="admin-card">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Recent updates</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Updated</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Why This Home Matters</td>
+                    <td>Page section</td>
+                    <td><span class="status-pill status-pill--published">Published</span></td>
+                    <td>Jun 1, 2026</td>
+                  </tr>
+                  <tr>
+                    <td>Founder Story</td>
+                    <td>Page</td>
+                    <td><span class="status-pill status-pill--published">Published</span></td>
+                    <td>May 28, 2026</td>
+                  </tr>
+                  <tr>
+                    <td>May 2026 Launch Workshop</td>
+                    <td>Post</td>
+                    <td><span class="status-pill status-pill--draft">Draft</span></td>
+                    <td>May 20, 2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Posts -->
+          <section class="admin-panel" id="panel-posts" hidden>
+            <div class="admin-toolbar">
+              <label class="admin-search">
+                <span class="visually-hidden">Search posts</span>
+                <input type="search" placeholder="Search posts…" aria-label="Search posts" />
+              </label>
+              <button type="button" class="button button-primary">+ New post</button>
+            </div>
+
+            <div class="admin-layout-split">
+              <div class="admin-card">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>May 2026 Launch Workshop</td>
+                      <td>Admin</td>
+                      <td><span class="status-pill status-pill--draft">Draft</span></td>
+                      <td>May 20, 2026</td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <button type="button">View</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>First Elders Welcomed Home</td>
+                      <td>Admin</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>Apr 12, 2026</td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <button type="button">View</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Dubuluk Care Center Opens</td>
+                      <td>Admin</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>Mar 8, 2026</td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <button type="button">View</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Community Gathering Report</td>
+                      <td>Admin</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>Feb 2, 2026</td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <button type="button">View</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <form class="admin-form" aria-label="Edit post (preview)">
+                <p class="admin-form-hint">Edit form preview — saving requires a backend later.</p>
+                <label>
+                  Title
+                  <input type="text" value="May 2026 Launch Workshop" />
+                </label>
+                <label>
+                  Slug
+                  <input type="text" value="may-2026-launch-workshop" />
+                </label>
+                <label>
+                  Status
+                  <select>
+                    <option>Draft</option>
+                    <option selected>Published</option>
+                  </select>
+                </label>
+                <label>
+                  Excerpt
+                  <textarea rows="3">Inauguration program and Dubuluk Care Center workshop at Dambalaa Waaccuu.</textarea>
+                </label>
+                <label>
+                  Content
+                  <textarea rows="8">The May 2026 launch introduced the Senior Home Facilitation project to the community…</textarea>
+                </label>
+                <div class="admin-form-actions">
+                  <button type="button" class="button button-primary">Publish</button>
+                  <button type="button" class="button button-ghost">Save draft</button>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <!-- Pages -->
+          <section class="admin-panel" id="panel-pages" hidden>
+            <div class="admin-toolbar">
+              <label class="admin-search">
+                <span class="visually-hidden">Search pages</span>
+                <input type="search" placeholder="Search pages…" aria-label="Search pages" />
+              </label>
+            </div>
+
+            <div class="admin-layout-split">
+              <div class="admin-card">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Page</th>
+                      <th scope="col">URL</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Home</td>
+                      <td>index.html</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <a href="index.html">View</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>About</td>
+                      <td>about.html</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <a href="about.html">View</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Founder</td>
+                      <td>founder.html</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <a href="founder.html">View</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Care Center</td>
+                      <td>care-center.html</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <a href="care-center.html">View</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Gallery</td>
+                      <td>gallery.html</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <a href="gallery.html">View</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Support</td>
+                      <td>support.html</td>
+                      <td><span class="status-pill status-pill--published">Published</span></td>
+                      <td>
+                        <div class="admin-row-actions">
+                          <button type="button">Edit</button>
+                          <a href="support.html">View</a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <form class="admin-form" aria-label="Edit page section (preview)">
+                  <p class="admin-form-hint">Edit homepage “Why This Home Matters” section (preview).</p>
+                  <label>
+                    Page
+                    <select>
+                      <option selected>Home</option>
+                      <option>About</option>
+                      <option>Founder</option>
+                      <option>Care Center</option>
+                      <option>Gallery</option>
+                      <option>Support</option>
+                    </select>
+                  </label>
+                  <label>
+                    Section eyebrow
+                    <input type="text" value="Why This Home Matters" />
+                  </label>
+                  <label>
+                    Heading
+                    <input type="text" value="Built from a lasting responsibility to elders." />
+                  </label>
+                  <label>
+                    Body
+                    <textarea rows="6">Dirre Senior Home Facilitation was established by Samuel Galgalo Dadacha…</textarea>
+                  </label>
+                  <label>
+                    Status
+                    <select>
+                      <option selected>Published</option>
+                      <option>Draft</option>
+                    </select>
+                  </label>
+                  <div class="admin-form-actions">
+                    <button type="button" class="button button-primary">Update section</button>
+                  </div>
+                </form>
+                <div class="admin-preview" style="margin-top: 16px">
+                  <h2>Live preview (static)</h2>
+                  <p>
+                    <strong>Why This Home Matters</strong> — Built from a lasting responsibility to elders. Full preview
+                    appears on the public site after backend integration.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

@@ -1,22 +1,15 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
+import { useContent } from "../context/ContentContext.jsx";
 import { usePageMeta } from "../hooks/usePageMeta.js";
 
 export default function SupportPage() {
-  usePageMeta({
-    title: "Support | Dirre Senior Home Facilitation",
-    description: "Support options for Dirre Senior Home Facilitation and elder care in Borana, Ethiopia.",
-  });
+  const page = useContent().getPage("support");
+  usePageMeta(page.meta);
 
   return (
     <main>
-      <PageHero
-        image="/assets/photos/photo-03.jpg"
-        imageAlt="Outdoor seating area at the care center"
-        eyebrow="Support the Mission"
-        title="Support the mission"
-        deck="Partnership support helps the care center meet basic needs and welcome more elders into a safe, respectful environment."
-      />
+      <PageHero {...page.hero} />
 
       <section className="section section-light">
         <div className="section-inner">
@@ -69,22 +62,85 @@ export default function SupportPage() {
         </div>
       </section>
 
-      <section className="section section-light">
+      <section className="section section-light" id="contact">
         <div className="section-inner two-column">
           <figure className="feature-media" data-animate>
             <img src="/assets/photos/photo-06.jpg" alt="Dubuluk Care Center sign at Dambalaa Waaccuu" />
             <figcaption>Public project sign for the care center.</figcaption>
           </figure>
-          <div className="section-copy" data-animate>
-            <p className="eyebrow">Next Step</p>
-            <h2>Use the project team's current contact channels to begin a partnership conversation.</h2>
-            <p>
-              This website is ready for a phone number, email address, donation link, or partner form whenever those
-              details are finalized for public use.
+          <div className="section-copy contact-card-wrapper" data-animate>
+            <p className="eyebrow">Get in Touch</p>
+            <h2>Contact Us</h2>
+            <p className="contact-intro">
+              Use the channels below to reach out, ask questions, or begin a partnership conversation with our team.
             </p>
-            <Link className="button button-primary" to="/gallery">
-              See Project Photos
-            </Link>
+            
+            <div className="contact-details-box">
+              <div className="contact-item-row">
+                <div className="contact-icon-frame">
+                  <svg className="contact-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div className="contact-item-content">
+                  <span className="contact-label">Contact Person</span>
+                  <strong className="contact-value">{page.contact?.person || "Samuel Galgalo"}</strong>
+                  <span className="contact-subvalue">{page.contact?.position || "Founder & Executive Director"}</span>
+                </div>
+              </div>
+              
+              <div className="contact-item-row">
+                <div className="contact-icon-frame">
+                  <svg className="contact-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div className="contact-item-content">
+                  <span className="contact-label">Address</span>
+                  <span className="contact-value">{page.contact?.address || "P.O. Box 220 Yaballo, Ethiopia"}</span>
+                </div>
+              </div>
+              
+              <div className="contact-item-row">
+                <div className="contact-icon-frame">
+                  <svg className="contact-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div className="contact-item-content">
+                  <span className="contact-label">Phone</span>
+                  <a href={`tel:${(page.contact?.tel || "+251954729300").replace(/\s+/g, "")}`} className="contact-link">
+                    {page.contact?.tel || "+251 954 72 93 00"}
+                  </a>
+                </div>
+              </div>
+              
+              <div className="contact-item-row">
+                <div className="contact-icon-frame">
+                  <svg className="contact-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </div>
+                <div className="contact-item-content">
+                  <span className="contact-label">Email</span>
+                  <a href={`mailto:${page.contact?.email || "Boranaseniorhome@gmail.com"}`} className="contact-link">
+                    {page.contact?.email || "Boranaseniorhome@gmail.com"}
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="contact-actions">
+              <a href={`mailto:${page.contact?.email || "Boranaseniorhome@gmail.com"}`} className="button button-primary">
+                Email Our Team
+              </a>
+              <a href={`tel:${(page.contact?.tel || "+251954729300").replace(/\s+/g, "")}`} className="button button-ghost">
+                Call Now
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -1,35 +1,62 @@
 import { Link } from "react-router-dom";
 import GalleryGrid from "../components/GalleryGrid.jsx";
+import ProjectNews from "../components/ProjectNews.jsx";
+import { useContent } from "../context/ContentContext.jsx";
 import { galleryItems } from "../data/gallery.js";
 import { usePageMeta } from "../hooks/usePageMeta.js";
 
 export default function HomePage() {
-  usePageMeta({
-    title: "Dirre Senior Home Facilitation",
-    description:
-      "Dirre Senior Home Facilitation supports elders in Borana, Ethiopia through a respectful home and community care project.",
-  });
+  const { getPage } = useContent();
+  const page = getPage("home");
+  const { hero, visionMission, about, founderPreview, care, supportBand, news } = page;
+
+  usePageMeta(page.meta);
 
   return (
     <main id="top">
       <section className="hero" aria-labelledby="hero-title">
-        <img
-          className="hero-bg"
-          src="/assets/photos/photo-11.jpg"
-          alt="Elders seated together during a community gathering"
-        />
+        <img className="hero-bg" src={hero.image} alt={hero.imageAlt} />
         <div className="hero-overlay"></div>
         <div className="section-inner hero-inner" data-animate>
-          <p className="eyebrow">Dhaabbata Kunuunsa Maangudoota Dirree</p>
-          <h1 id="hero-title">Dirre Senior Home Facilitation</h1>
-          <p className="hero-lead">
-            A community care project in Borana, Ethiopia—creating a safe, respectful home for elders affected by
-            drought, hardship, and displacement.
-          </p>
+          <p className="eyebrow">{hero.eyebrow}</p>
+          <h1 id="hero-title">{hero.title}</h1>
+          <p className="hero-lead">{hero.lead}</p>
           <ul className="hero-meta" aria-label="Project at a glance">
-            <li>Borana, Ethiopia</li>
-            <li>May 2026 workshop</li>
-            <li>Dignity-first elder care</li>
+            {hero.metaTags.map((tag, idx) => {
+              let icon;
+              if (idx === 0) {
+                // Borana, Ethiopia -> Map Pin
+                icon = (
+                  <svg className="hero-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                );
+              } else if (idx === 1) {
+                // May 2026 workshop -> Calendar
+                icon = (
+                  <svg className="hero-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                );
+              } else {
+                // Dignity-first elder care -> Heart
+                icon = (
+                  <svg className="hero-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                  </svg>
+                );
+              }
+              return (
+                <li key={tag} className="hero-meta-chip">
+                  {icon}
+                  <span>{tag}</span>
+                </li>
+              );
+            })}
           </ul>
           <div className="hero-actions" aria-label="Primary actions">
             <Link className="button button-primary" to="/about">
@@ -39,7 +66,7 @@ export default function HomePage() {
               Support the Mission
             </Link>
           </div>
-          <p className="hero-motto">Elders: Our Pillars of Respect · Dambalaa Waaccuu, Borana</p>
+          <p className="hero-motto">{hero.motto}</p>
         </div>
       </section>
 
@@ -62,23 +89,57 @@ export default function HomePage() {
         </Link>
       </section>
 
+      {visionMission ? (
+        <section className="section section-purpose" aria-labelledby="purpose-heading">
+          <div className="section-inner purpose-layout">
+            <div className="purpose-intro" data-animate>
+              <p className="eyebrow">{visionMission.eyebrow || "Our Foundation"}</p>
+              <h2 id="purpose-heading">{visionMission.heading || "Vision & Mission"}</h2>
+              <p className="purpose-deck">
+                Guiding our efforts toward a future where Ethiopian seniors thrive with dignity, care, and security.
+              </p>
+            </div>
+            <div className="purpose-content">
+              <div className="purpose-item" data-animate>
+                <div className="purpose-icon-wrapper">
+                  <svg className="purpose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </div>
+                <div className="purpose-text">
+                  <span className="purpose-tag">01 / Vision</span>
+                  <h3>{visionMission.visionTitle || "Our Vision"}</h3>
+                  <p>{visionMission.vision}</p>
+                </div>
+              </div>
+              <div className="purpose-item" data-animate>
+                <div className="purpose-icon-wrapper">
+                  <svg className="purpose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                  </svg>
+                </div>
+                <div className="purpose-text">
+                  <span className="purpose-tag">02 / Mission</span>
+                  <h3>{visionMission.missionTitle || "Our Mission"}</h3>
+                  <p>{visionMission.mission}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="section section-light section-brand" id="about">
         <div className="section-inner two-column">
           <div className="section-copy" data-animate>
-            <p className="eyebrow">Why This Home Matters</p>
-            <h2>Built from a lasting responsibility to elders.</h2>
-            <p>
-              Dirre Senior Home Facilitation was established by Samuel Galgalo Dadacha, a local resident who later
-              became a refugee in the United States and worked as a professional social worker. His connection to his
-              homeland shaped a practical mission: help elders who have been overlooked and left to meet basic needs on
-              their own.
-            </p>
-            <p>
-              The Borana region is primarily pastoralist, and drought from 2020 to 2023 severely affected livelihoods.
-              As many families lost livestock, older community members became especially vulnerable. The Senior Citizens
-              Home Project responds with shelter, daily support, dignity, and a shared culture of compassion across
-              generations.
-            </p>
+            <p className="eyebrow">{about.eyebrow}</p>
+            <h2>{about.heading}</h2>
+            {about.paragraphs.map((paragraph) => (
+              <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+            ))}
             <div className="section-actions">
               <Link className="button button-primary" to="/about">
                 Read the full story
@@ -89,8 +150,8 @@ export default function HomePage() {
             </div>
           </div>
           <figure className="feature-media" data-animate>
-            <img src="/assets/photos/photo-12.jpg" alt="An elder sitting on a bed inside the care center" />
-            <figcaption>Simple care spaces designed around dignity, rest, and human attention.</figcaption>
+            <img src={about.image} alt={about.imageAlt} />
+            <figcaption>{about.figcaption}</figcaption>
           </figure>
         </div>
       </section>
@@ -98,16 +159,12 @@ export default function HomePage() {
       <section className="section founder-preview">
         <div className="section-inner founder-preview-grid">
           <figure className="founder-media" data-animate>
-            <img src="/assets/photos/founder-samuel.png" alt="Samuel Galgalo Dadacha, founder" />
+            <img src={founderPreview.image} alt="Samuel Galgalo Dadacha, founder" />
           </figure>
           <div className="section-copy" data-animate>
-            <p className="eyebrow">Founder</p>
-            <h2>Samuel Galgalo Dadacha connects social work with homeland responsibility.</h2>
-            <p>
-              Samuel was raised with the values of Borana community life, later resettled in the United States as a
-              refugee, and worked as a professional social worker. His experience shaped a practical belief: elders need
-              care systems that protect dignity while responding to real daily needs.
-            </p>
+            <p className="eyebrow">{founderPreview.eyebrow}</p>
+            <h2>{founderPreview.heading}</h2>
+            <p>{founderPreview.body}</p>
             <Link className="button button-primary" to="/founder">
               Founder Story
             </Link>
@@ -118,11 +175,11 @@ export default function HomePage() {
       <section className="section section-light section-care" id="care">
         <div className="section-inner">
           <div className="section-heading" data-animate>
-            <p className="eyebrow">Dubuluk Care Center</p>
+            <p className="eyebrow">{care.eyebrow}</p>
             <h2 className="section-title">
-              A place for shelter, gathering, and belonging.
+              {care.heading}
               <Link className="title-accent" to="/care-center">
-                See the care center
+                {care.accentLabel}
               </Link>
             </h2>
           </div>
@@ -225,6 +282,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <ProjectNews section={news} />
+
       <section className="section section-light" id="gallery">
         <div className="section-inner">
           <div className="section-heading" data-animate>
@@ -250,12 +309,9 @@ export default function HomePage() {
         <div className="support-inner" data-animate>
           <img src="/assets/docx-media/image6.png" alt="" aria-hidden="true" />
           <div>
-            <p className="eyebrow">Support the Mission</p>
-            <h2>Help expand respectful care for elders in Borana.</h2>
-            <p>
-              The project is built on compassion, responsibility, and practical care. Partnership support can help the
-              home continue meeting elders' basic needs while strengthening a culture of respect across generations.
-            </p>
+            <p className="eyebrow">{supportBand.eyebrow}</p>
+            <h2>{supportBand.heading}</h2>
+            <p>{supportBand.body}</p>
           </div>
           <Link className="button button-primary" to="/support">
             Support Options

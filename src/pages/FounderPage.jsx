@@ -1,23 +1,15 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
+import { useContent } from "../context/ContentContext.jsx";
 import { usePageMeta } from "../hooks/usePageMeta.js";
 
 export default function FounderPage() {
-  usePageMeta({
-    title: "Founder | Dirre Senior Home Facilitation",
-    description: "Founder story for Samuel Galgalo Dadacha and Dirre Senior Home Facilitation.",
-  });
+  const page = useContent().getPage("founder");
+  usePageMeta(page.meta);
 
   return (
     <main>
-      <PageHero
-        className="page-hero--founder"
-        image="/assets/photos/photo-08.jpg"
-        imageAlt="Samuel Galgalo Dadacha featured on OBN"
-        eyebrow="Founder"
-        title="Samuel Galgalo Dadacha"
-        deck="A Borana community member, refugee, and professional social worker whose commitment to elders shaped this home."
-      />
+      <PageHero {...page.hero} />
 
       <section className="section section-light">
         <div className="section-inner founder-profile">

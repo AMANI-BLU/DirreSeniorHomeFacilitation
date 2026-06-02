@@ -1,25 +1,17 @@
 import { Link } from "react-router-dom";
 import GalleryGrid from "../components/GalleryGrid.jsx";
 import PageHero from "../components/PageHero.jsx";
+import { useContent } from "../context/ContentContext.jsx";
 import { galleryItems } from "../data/gallery.js";
 import { usePageMeta } from "../hooks/usePageMeta.js";
 
 export default function GalleryPage() {
-  usePageMeta({
-    title: "Gallery | Dirre Senior Home Facilitation",
-    description:
-      "Photo gallery for Dirre Senior Home Facilitation, Dubuluk Care Center, project launch, and first elders.",
-  });
+  const page = useContent().getPage("gallery");
+  usePageMeta(page.meta);
 
   return (
     <main>
-      <PageHero
-        image="/assets/photos/photo-11.jpg"
-        imageAlt="Elders seated together during the project gathering"
-        eyebrow="Gallery"
-        title="Project photo gallery"
-        deck="Facilities, launch moments, and elder care in action across the site, care center, and community gatherings."
-      />
+      <PageHero {...page.hero} />
 
       <section className="section section-light">
         <div className="section-inner">

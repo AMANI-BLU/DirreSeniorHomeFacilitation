@@ -18,7 +18,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="footer-col">
-          <strong>Explore</strong>
+          <strong>Quick Links</strong>
           <ul className="footer-links">
             <li>
               <Link to="/">Home</Link>
@@ -30,19 +30,28 @@ export default function Footer() {
               <Link to="/founder">Founder</Link>
             </li>
             <li>
+              <Link to="/care-center">Care Center</Link>
+            </li>
+            <li>
               <Link to="/gallery">Gallery</Link>
+            </li>
+            <li>
+              <Link to="/support">Support</Link>
             </li>
           </ul>
         </div>
         <div className="footer-col">
-          <strong>Care</strong>
-          <ul className="footer-links">
-            <li>
-              <Link to="/care-center">Care Center</Link>
+          <strong>Contact</strong>
+          <ul className="footer-links footer-contact-list">
+            <li className="contact-person"><strong>Samuel Galgalo</strong></li>
+            <li className="contact-position">Founder & Executive Director</li>
+            <li className="contact-phone">
+              <a href="tel:+251954729300">+251 954 72 93 00</a>
             </li>
-            <li>
-              <Link to="/support">Support Options</Link>
+            <li className="contact-email">
+              <a href="mailto:Boranaseniorhome@gmail.com">Boranaseniorhome@gmail.com</a>
             </li>
+            <li className="contact-address">P.O. Box 220 Yaballo, Ethiopia</li>
           </ul>
         </div>
         <div className="footer-col footer-cta-col">

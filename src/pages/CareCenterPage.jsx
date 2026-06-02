@@ -1,22 +1,15 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
+import { useContent } from "../context/ContentContext.jsx";
 import { usePageMeta } from "../hooks/usePageMeta.js";
 
 export default function CareCenterPage() {
-  usePageMeta({
-    title: "Care Center | Dirre Senior Home Facilitation",
-    description: "Explore the rooms, gathering spaces, and first elders of the Dubuluk Care Center.",
-  });
+  const page = useContent().getPage("careCenter");
+  usePageMeta(page.meta);
 
   return (
     <main>
-      <PageHero
-        image="/assets/photos/photo-02.jpg"
-        imageAlt="Care center room with beds and a window"
-        eyebrow="Dubuluk Care Center"
-        title="Dubuluk Care Center"
-        deck="A prepared place for elders to sleep, gather, and receive practical support in a respectful environment at Dambalaa Waaccuu."
-      />
+      <PageHero {...page.hero} />
 
       <section className="section section-light">
         <div className="section-inner">

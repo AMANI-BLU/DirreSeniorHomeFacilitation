@@ -1,22 +1,58 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
+import { useContent } from "../context/ContentContext.jsx";
 import { usePageMeta } from "../hooks/usePageMeta.js";
 
 export default function AboutPage() {
-  usePageMeta({
-    title: "About | Dirre Senior Home Facilitation",
-    description: "Learn why Dirre Senior Home Facilitation was created to support elders in Borana, Ethiopia.",
-  });
+  const page = useContent().getPage("about");
+  usePageMeta(page.meta);
 
   return (
     <main>
-      <PageHero
-        image="/assets/photos/photo-07.jpg"
-        imageAlt="Entrance to the Dirre Senior Home Facilitation site"
-        eyebrow="About the Project"
-        title="About Dirre Senior Home"
-        deck="Respectful care for elders in Borana—shelter, basic support, and dignity for community members affected by drought and hardship."
-      />
+      <PageHero {...page.hero} />
+
+      {page.visionMission ? (
+        <section className="section section-purpose" aria-labelledby="purpose-heading">
+          <div className="section-inner purpose-layout">
+            <div className="purpose-intro" data-animate>
+              <p className="eyebrow">{page.visionMission.eyebrow || "Our Foundation"}</p>
+              <h2 id="purpose-heading">{page.visionMission.heading || "Vision & Mission"}</h2>
+              <p className="purpose-deck">
+                Guiding our efforts toward a future where Ethiopian seniors thrive with dignity, care, and security.
+              </p>
+            </div>
+            <div className="purpose-content">
+              <div className="purpose-item" data-animate>
+                <div className="purpose-icon-wrapper">
+                  <svg className="purpose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </div>
+                <div className="purpose-text">
+                  <span className="purpose-tag">01 / Vision</span>
+                  <h3>{page.visionMission.visionTitle || "Our Vision"}</h3>
+                  <p>{page.visionMission.vision}</p>
+                </div>
+              </div>
+              <div className="purpose-item" data-animate>
+                <div className="purpose-icon-wrapper">
+                  <svg className="purpose-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                  </svg>
+                </div>
+                <div className="purpose-text">
+                  <span className="purpose-tag">02 / Mission</span>
+                  <h3>{page.visionMission.missionTitle || "Our Mission"}</h3>
+                  <p>{page.visionMission.mission}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section section-light">
         <div className="section-inner content-grid">
@@ -72,24 +108,37 @@ export default function AboutPage() {
           <div className="section-heading" data-animate>
             <p className="eyebrow">Values</p>
             <h2 className="section-title">
-              A care model shaped by dignity, compassion, and responsibility.
+              Our core values guide the decisions, conduct, and culture of our organization.
               <Link className="title-accent" to="/care-center">
                 See the care center
               </Link>
             </h2>
           </div>
-          <div className="values-grid">
+          <div className="values-grid values-grid--five">
             <article className="info-card" data-animate>
+              <span className="card-number">01</span>
               <h3>Dignity</h3>
-              <p>Elders are treated as respected members of the community, not as a burden.</p>
+              <p>We hold the sacred worth of every senior as paramount. This means ensuring unwavering respect for their individual autonomy, privacy, and personal history, and consistently honouring their choices in every care decision.</p>
             </article>
             <article className="info-card" data-animate>
-              <h3>Protection</h3>
-              <p>The home offers safe spaces for rest, recovery, and reliable daily support.</p>
+              <span className="card-number">02</span>
+              <h3>Compassion</h3>
+              <p>We approach every interaction with deep empathy and heart-driven kindness, creating a profoundly nurturing and healing environment. Our care is holistic, proactively addressing the complex physical, emotional, and psychological needs of our residents.</p>
             </article>
             <article className="info-card" data-animate>
+              <span className="card-number">03</span>
+              <h3>Integrity</h3>
+              <p>We operate with absolute moral fortitude and transparency. Our commitment to the highest standards of ethical conduct, fiscal accountability, and honest communication is the cornerstone of trust with our residents, their families, and our stakeholders.</p>
+            </article>
+            <article className="info-card" data-animate>
+              <span className="card-number">04</span>
               <h3>Community</h3>
-              <p>The project invites families, local leaders, and partners to share responsibility for elder care.</p>
+              <p>We are dedicated to building a vibrant, inclusive family. We actively cultivate a strong sense of belonging through purposeful engagement, fostering meaningful intergenerational bonds that celebrate seniors' wisdom and actively combat isolation.</p>
+            </article>
+            <article className="info-card" data-animate>
+              <span className="card-number">05</span>
+              <h3>Excellence</h3>
+              <p>We are driven by a culture of continuous innovation and superior service delivery. We relentlessly strive to exceed benchmarks in care standards, operational effectiveness, and program quality to ensure the most positive and life-affirming outcomes for our seniors.</p>
             </article>
           </div>
         </div>

@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>Dirre Seniors Home Facilitation · Dambalaa Waaccuu</p>
+        <p>Dirre Seniors Home Facilitation</p>
         <p>Elders: Our Pillars of Respect</p>
       </div>
     </footer>

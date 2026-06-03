@@ -110,7 +110,7 @@ export default function CareCenterPage() {
         <div className="section-inner two-column">
           <div className="section-copy" data-animate>
             <p className="eyebrow">Launch Workshop</p>
-            <h2>Introduced publicly in May 2026 at Dambalaa Waaccuu.</h2>
+            <h2>Introduced publicly in May 2026.</h2>
             <p>
               The inauguration program and Dubuluk Care Center project launching workshop presented the work to the
               community in Afaan Oromo and English, strengthening local recognition of the care center.

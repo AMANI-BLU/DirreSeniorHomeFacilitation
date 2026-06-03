@@ -40,7 +40,7 @@ export default function Header() {
     <div className="header-stack">
       <div className="top-bar">
         <div className="top-bar-inner">
-          <p className="top-bar-location">Dambalaa Waaccuu · Borana, Ethiopia</p>
+          <p className="top-bar-location">Borana, Ethiopia</p>
           <div className="top-bar-actions">
             <Link to="/care-center">Care Center</Link>
             <Link to="/gallery">Photos</Link>

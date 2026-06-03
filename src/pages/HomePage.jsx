@@ -270,7 +270,7 @@ export default function HomePage() {
             <p className="eyebrow">Project Launch</p>
             <h2>Inauguration program and Dubuluk Care Center workshop.</h2>
             <p>
-              The May 2026 launch workshop at Dambalaa Waaccuu introduced the Dirre Seniors Home Facilitation and Dubuluk Care
+              The May 2026 launch workshop introduced the Dirre Seniors Home Facilitation and Dubuluk Care
               Center project to the community. The banners carry the project identity in Afaan Oromo and English,
               emphasizing local ownership and the shared responsibility of caring for elders.
             </p>

@@ -9,7 +9,7 @@ export const defaultContent = {
       slug: "may-2026-launch-workshop",
       status: "draft",
       author: "Admin",
-      excerpt: "Inauguration program and Dubuluk Care Center workshop at Dambalaa Waaccuu.",
+      excerpt: "Inauguration program and Dubuluk Care Center workshop.",
       content:
         "The May 2026 launch introduced the Dirre Seniors Home Facilitation project to the community in Afaan Oromo and English, emphasizing local ownership and shared responsibility for elder care.",
       updatedAt: "2026-05-20T10:00:00.000Z",
@@ -31,7 +31,7 @@ export const defaultContent = {
       slug: "dubuluk-care-center-opens",
       status: "published",
       author: "Admin",
-      excerpt: "The care center site at Dambalaa Waaccuu is ready to serve elders.",
+      excerpt: "The care center site is ready to serve elders.",
       content:
         "Prepared rooms, outdoor gathering areas, and visible project signage mark a new chapter for elder care in Borana.",
       updatedAt: "2026-03-08T10:00:00.000Z",
@@ -63,7 +63,7 @@ export const defaultContent = {
         lead:
           "A community care project in Borana, Ethiopia—creating a safe, respectful home for elders affected by drought, hardship, and displacement.",
         metaTags: ["Borana, Ethiopia", "May 2026 workshop", "Dignity-first elder care"],
-        motto: "Elders: Our Pillars of Respect · Dambalaa Waaccuu, Borana",
+        motto: "Elders: Our Pillars of Respect · Borana",
       },
       visionMission: {
         eyebrow: "Our Foundation",
@@ -155,7 +155,7 @@ export const defaultContent = {
         eyebrow: "Dubuluk Care Center",
         title: "Dubuluk Care Center",
         deck:
-          "A prepared place for elders to sleep, gather, and receive practical support in a respectful environment at Dambalaa Waaccuu.",
+          "A prepared place for elders to sleep, gather, and receive practical support in a respectful environment.",
       },
     },
     gallery: {

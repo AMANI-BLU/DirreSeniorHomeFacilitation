@@ -407,7 +407,6 @@ h3 {
   display: inline;
   color: var(--green);
   font-family: var(--font-serif);
-  font-style: italic;
   font-weight: 700;
   text-decoration: underline;
   text-decoration-color: rgba(201, 111, 58, 0.45);

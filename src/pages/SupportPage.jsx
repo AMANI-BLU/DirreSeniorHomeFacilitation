@@ -55,7 +55,7 @@ export default function SupportPage() {
             <ul>
               <li>Dirre Seniors Home Facilitation.</li>
               <li>Dubuluk Care Center.</li>
-              <li>Dambalaa Waaccuu, Borana, Ethiopia.</li>
+              <li>Borana, Ethiopia.</li>
               <li>Elders: Our Pillars of Respect.</li>
             </ul>
           </aside>
@@ -65,7 +65,7 @@ export default function SupportPage() {
       <section className="section section-light" id="contact">
         <div className="section-inner two-column">
           <figure className="feature-media" data-animate>
-            <img src="/assets/photos/photo-06.jpg" alt="Dubuluk Care Center sign at Dambalaa Waaccuu" />
+            <img src="/assets/photos/photo-06.jpg" alt="Dubuluk Care Center sign" />
             <figcaption>Public project sign for the care center.</figcaption>
           </figure>
           <div className="section-copy contact-card-wrapper" data-animate>

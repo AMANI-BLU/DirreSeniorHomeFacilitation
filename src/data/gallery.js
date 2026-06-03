@@ -46,7 +46,7 @@ export const galleryItems = [
   {
     src: "/assets/photos/photo-06.jpg",
     alt: "Dubuluk Care Center sign",
-    caption: "Dubuluk Care Center sign at Dambalaa Waaccuu.",
+    caption: "Dubuluk Care Center sign.",
     category: "Site",
     title: "Care Center Sign",
   },

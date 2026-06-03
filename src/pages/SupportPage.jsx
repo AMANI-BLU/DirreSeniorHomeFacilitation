@@ -53,7 +53,7 @@ export default function SupportPage() {
           <aside className="aside-panel" data-animate>
             <h3>Project Identity</h3>
             <ul>
-              <li>Dirre Senior Home Facilitation.</li>
+              <li>Dirre Seniors Home Facilitation.</li>
               <li>Dubuluk Care Center.</li>
               <li>Dambalaa Waaccuu, Borana, Ethiopia.</li>
               <li>Elders: Our Pillars of Respect.</li>

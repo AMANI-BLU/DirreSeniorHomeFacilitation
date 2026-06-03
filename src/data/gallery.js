@@ -2,8 +2,8 @@ export const galleryItems = [
   {
     wide: true,
     src: "/assets/photos/photo-07.jpg",
-    alt: "Entrance to the Dirre Senior Home Facilitation site",
-    caption: "Entrance to the Dirre Senior Home Facilitation site.",
+    alt: "Entrance to the Dirre Seniors Home Facilitation site",
+    caption: "Entrance to the Dirre Seniors Home Facilitation site.",
     category: "Site",
     title: "Project Entrance",
   },
@@ -39,7 +39,7 @@ export const galleryItems = [
   {
     src: "/assets/photos/photo-05.jpg",
     alt: "Project identity banner with logo",
-    caption: "Project identity banner with Dirre Senior Home Facilitation logo.",
+    caption: "Project identity banner with Dirre Seniors Home Facilitation logo.",
     category: "Launch",
     title: "Project Identity",
   },

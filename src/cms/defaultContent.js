@@ -11,7 +11,7 @@ export const defaultContent = {
       author: "Admin",
       excerpt: "Inauguration program and Dubuluk Care Center workshop at Dambalaa Waaccuu.",
       content:
-        "The May 2026 launch introduced the Senior Home Facilitation project to the community in Afaan Oromo and English, emphasizing local ownership and shared responsibility for elder care.",
+        "The May 2026 launch introduced the Dirre Seniors Home Facilitation project to the community in Afaan Oromo and English, emphasizing local ownership and shared responsibility for elder care.",
       updatedAt: "2026-05-20T10:00:00.000Z",
     },
     {
@@ -51,15 +51,15 @@ export const defaultContent = {
   pages: {
     home: {
       meta: {
-        title: "Dirre Senior Home Facilitation",
+        title: "Dirre Seniors Home Facilitation",
         description:
-          "Dirre Senior Home Facilitation supports elders in Borana, Ethiopia through a respectful home and community care project.",
+          "Dirre Seniors Home Facilitation supports elders in Borana, Ethiopia through a respectful home and community care project.",
       },
       hero: {
         image: "/assets/photos/photo-11.jpg",
         imageAlt: "Elders seated together during a community gathering",
         eyebrow: "Dhaabbata Kunuunsa Maangudoota Dirree",
-        title: "Dirre Senior Home Facilitation",
+        title: "Dirre Seniors Home Facilitation",
         lead:
           "A community care project in Borana, Ethiopia—creating a safe, respectful home for elders affected by drought, hardship, and displacement.",
         metaTags: ["Borana, Ethiopia", "May 2026 workshop", "Dignity-first elder care"],
@@ -77,7 +77,7 @@ export const defaultContent = {
         eyebrow: "Why This Home Matters",
         heading: "Built from a lasting responsibility to elders.",
         paragraphs: [
-          "Dirre Senior Home Facilitation was established by Samuel Galgalo Dadacha, a local resident who later became a refugee in the United States and worked as a professional social worker. His connection to his homeland shaped a practical mission: help elders who have been overlooked and left to meet basic needs on their own.",
+          "Dirre Seniors Home Facilitation was established by Samuel Galgalo Dadacha, a local resident who later became a refugee in the United States and worked as a professional social worker. His connection to his homeland shaped a practical mission: help elders who have been overlooked and left to meet basic needs on their own.",
           "The Borana region is primarily pastoralist, and drought from 2020 to 2023 severely affected livelihoods. As many families lost livestock, older community members became especially vulnerable. The Senior Citizens Home Project responds with shelter, daily support, dignity, and a shared culture of compassion across generations.",
         ],
         image: "/assets/photos/photo-12.jpg",
@@ -109,14 +109,14 @@ export const defaultContent = {
     },
     about: {
       meta: {
-        title: "About | Dirre Senior Home Facilitation",
-        description: "Learn why Dirre Senior Home Facilitation was created to support elders in Borana, Ethiopia.",
+        title: "About | Dirre Seniors Home Facilitation",
+        description: "Learn why Dirre Seniors Home Facilitation was created to support elders in Borana, Ethiopia.",
       },
       hero: {
         image: "/assets/photos/photo-07.jpg",
-        imageAlt: "Entrance to the Dirre Senior Home Facilitation site",
+        imageAlt: "Entrance to the Dirre Seniors Home Facilitation site",
         eyebrow: "About the Project",
-        title: "About Dirre Senior Home",
+        title: "About Dirre Seniors Home Facilitation",
         deck:
           "Respectful care for elders in Borana—shelter, basic support, and dignity for community members affected by drought and hardship.",
       },
@@ -131,8 +131,8 @@ export const defaultContent = {
     },
     founder: {
       meta: {
-        title: "Founder | Dirre Senior Home Facilitation",
-        description: "Founder story for Samuel Galgalo Dadacha and Dirre Senior Home Facilitation.",
+        title: "Founder | Dirre Seniors Home Facilitation",
+        description: "Founder story for Samuel Galgalo Dadacha and Dirre Seniors Home Facilitation.",
       },
       hero: {
         image: "/assets/photos/photo-08.jpg",
@@ -146,7 +146,7 @@ export const defaultContent = {
     },
     careCenter: {
       meta: {
-        title: "Care Center | Dirre Senior Home Facilitation",
+        title: "Care Center | Dirre Seniors Home Facilitation",
         description: "Explore the rooms, gathering spaces, and first elders of the Dubuluk Care Center.",
       },
       hero: {
@@ -160,9 +160,9 @@ export const defaultContent = {
     },
     gallery: {
       meta: {
-        title: "Gallery | Dirre Senior Home Facilitation",
+        title: "Gallery | Dirre Seniors Home Facilitation",
         description:
-          "Photo gallery for Dirre Senior Home Facilitation, Dubuluk Care Center, project launch, and first elders.",
+          "Photo gallery for Dirre Seniors Home Facilitation, Dubuluk Care Center, project launch, and first elders.",
       },
       hero: {
         image: "/assets/photos/photo-11.jpg",
@@ -175,8 +175,8 @@ export const defaultContent = {
     },
     support: {
       meta: {
-        title: "Support | Dirre Senior Home Facilitation",
-        description: "Support options for Dirre Senior Home Facilitation and elder care in Borana, Ethiopia.",
+        title: "Support | Dirre Seniors Home Facilitation",
+        description: "Support options for Dirre Seniors Home Facilitation and elder care in Borana, Ethiopia.",
       },
       hero: {
         image: "/assets/photos/photo-03.jpg",

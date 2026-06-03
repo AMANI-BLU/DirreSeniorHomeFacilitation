@@ -51,7 +51,7 @@ export default function CareCenterPage() {
             </article>
             <article className="care-card" data-animate>
               <div className="care-card-media">
-                <img src="/assets/photos/photo-07.jpg" alt="Entrance to the Dirre Senior Home Facilitation site" />
+                <img src="/assets/photos/photo-08.jpg" alt="Project feature image shared in local media coverage" />
                 <span className="card-tag">Site</span>
               </div>
               <div className="care-card-body">
@@ -120,7 +120,7 @@ export default function CareCenterPage() {
             </Link>
           </div>
           <figure className="feature-media" data-animate>
-            <img src="/assets/photos/photo-04.jpg" alt="Inauguration program banner for Dirre Senior Home Facilitation" />
+            <img src="/assets/photos/photo-04.jpg" alt="Inauguration program banner for Dirre Seniors Home Facilitation" />
             <figcaption>Inauguration program and project launching workshop banner.</figcaption>
           </figure>
         </div>

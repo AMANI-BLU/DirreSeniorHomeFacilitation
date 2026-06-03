@@ -65,7 +65,7 @@ export default function AboutPage() {
               homeland and passionate about helping elders who have been overlooked.
             </p>
             <p>
-              Many elderly people in the region have been left to meet their basic needs alone. Dirre Senior Home
+              Many elderly people in the region have been left to meet their basic needs alone. Dirre Seniors Home
               Facilitation exists to answer that reality with practical care, community responsibility, and respect.
             </p>
           </div>

@@ -51,10 +51,10 @@ export default function Header() {
         </div>
       </div>
       <header className="site-header" data-header>
-        <Link className="brand" to="/" aria-label="Dirre Senior Home Facilitation home" onClick={closeNav}>
-          <img src="/assets/docx-media/image6.png" alt="Dirre Senior Home Facilitation logo" />
+        <Link className="brand" to="/" aria-label="Dirre Seniors Home Facilitation home" onClick={closeNav}>
+          <img src="/assets/docx-media/image6.png" alt="Dirre Seniors Home Facilitation logo" />
           <span>
-            <strong>Dirre Senior Home</strong>
+            <strong>Dirre Seniors Home</strong>
             <small>Elders: Our Pillars of Respect</small>
           </span>
         </Link>

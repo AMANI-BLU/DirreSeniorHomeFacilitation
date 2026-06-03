@@ -263,14 +263,14 @@ export default function HomePage() {
       <section className="section section-event">
         <div className="section-inner two-column event-layout">
           <div className="event-image-stack" data-animate>
-            <img src="/assets/photos/photo-04.jpg" alt="Inauguration program banner for Dirre Senior Home Facilitation" />
+            <img src="/assets/photos/photo-04.jpg" alt="Inauguration program banner for Dirre Seniors Home Facilitation" />
             <img src="/assets/photos/photo-06.jpg" alt="Dubuluk Care Center site sign" />
           </div>
           <div className="section-copy" data-animate>
             <p className="eyebrow">Project Launch</p>
             <h2>Inauguration program and Dubuluk Care Center workshop.</h2>
             <p>
-              The May 2026 launch workshop at Dambalaa Waaccuu introduced the Senior Home Facilitation and Dubuluk Care
+              The May 2026 launch workshop at Dambalaa Waaccuu introduced the Dirre Seniors Home Facilitation and Dubuluk Care
               Center project to the community. The banners carry the project identity in Afaan Oromo and English,
               emphasizing local ownership and the shared responsibility of caring for elders.
             </p>

@@ -15,7 +15,7 @@ export default function FounderPage() {
         <div className="section-inner founder-profile">
           <figure className="founder-portrait" data-animate>
             <img src="/assets/photos/founder-samuel.png" alt="Portrait of Samuel Galgalo Dadacha" />
-            <figcaption>Samuel Galgalo Dadacha, founder of Dirre Senior Home Facilitation.</figcaption>
+            <figcaption>Samuel Galgalo Dadacha, founder of Dirre Seniors Home Facilitation.</figcaption>
           </figure>
           <div className="section-copy" data-animate>
             <p className="eyebrow">A Personal Mission</p>
@@ -74,7 +74,7 @@ export default function FounderPage() {
             <p className="eyebrow">What He Started</p>
             <h2>A home that asks every generation to share responsibility.</h2>
             <p>
-              Dirre Senior Home Facilitation is more than a building. It is a public reminder that elders deserve food,
+              Dirre Seniors Home Facilitation is more than a building. It is a public reminder that elders deserve food,
               shelter, companionship, and respect. The project invites local leaders, families, and supporters to make
               elder care visible and dependable.
             </p>
@@ -83,7 +83,7 @@ export default function FounderPage() {
             </Link>
           </div>
           <figure className="feature-media" data-animate>
-            <img src="/assets/photos/photo-04.jpg" alt="Inauguration program banner for Dirre Senior Home Facilitation" />
+            <img src="/assets/photos/photo-05.jpg" alt="Project identity banner with Dirre Seniors Home Facilitation logo" />
             <figcaption>Project launch workshop banner, May 2026.</figcaption>
           </figure>
         </div>

@@ -5,10 +5,10 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-col footer-brand">
-          <Link className="brand brand-footer" to="/" aria-label="Dirre Senior Home Facilitation home">
+          <Link className="brand brand-footer" to="/" aria-label="Dirre Seniors Home Facilitation home">
             <img src="/assets/docx-media/image6.png" alt="" />
             <span>
-              <strong>Dirre Senior Home</strong>
+              <strong>Dirre Seniors Home</strong>
               <small>Elders: Our Pillars of Respect</small>
             </span>
           </Link>
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>Dirre Senior Home Facilitation · Dambalaa Waaccuu</p>
+        <p>Dirre Seniors Home Facilitation · Dambalaa Waaccuu</p>
         <p>Elders: Our Pillars of Respect</p>
       </div>
     </footer>

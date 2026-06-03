@@ -1,6 +1,6 @@
-# Dirre Senior Home Facilitation
+# Dirre Seniors Home Facilitation
 
-React + Vite site for the Dirre Senior Home community care project.
+React + Vite site for the Dirre Seniors Home community care project.
 
 ## Commands
 

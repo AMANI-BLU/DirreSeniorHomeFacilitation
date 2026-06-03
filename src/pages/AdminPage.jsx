@@ -20,8 +20,8 @@ export default function AdminPage() {
   const { saveMessage } = useContent();
 
   usePageMeta({
-    title: "Admin | Dirre Senior Home",
-    description: "Content admin for Dirre Senior Home Facilitation.",
+    title: "Admin | Dirre Seniors Home",
+    description: "Content admin for Dirre Seniors Home Facilitation.",
   });
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function AdminPage() {
     <div className="admin-shell">
       <aside className="admin-sidebar">
         <div className="admin-brand">
-          <strong>Dirre Senior Home</strong>
+          <strong>Dirre Seniors Home</strong>
           <span>Content admin</span>
         </div>
         <nav className="admin-nav" aria-label="Admin sections">

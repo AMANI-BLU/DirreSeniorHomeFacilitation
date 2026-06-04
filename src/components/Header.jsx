@@ -11,6 +11,7 @@ const navItems = [
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const closeNav = () => {
     setNavOpen(false);
@@ -36,8 +37,18 @@ export default function Header() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [navOpen]);
 
+  useEffect(() => {
+    const updateScrolled = () => {
+      setIsScrolled(window.scrollY > 18);
+    };
+
+    updateScrolled();
+    window.addEventListener("scroll", updateScrolled, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrolled);
+  }, []);
+
   return (
-    <div className="header-stack">
+    <div className={`header-stack${isScrolled ? " is-scrolled" : ""}${navOpen ? " is-nav-open" : ""}`}>
       <div className="top-bar">
         <div className="top-bar-inner">
           <p className="top-bar-location">Borana, Ethiopia</p>

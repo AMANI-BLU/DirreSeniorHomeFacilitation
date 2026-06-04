@@ -38,7 +38,7 @@ export default function CareCenterPage() {
             </article>
             <article className="care-card" data-animate>
               <div className="care-card-media">
-                <img src="/assets/photos/photo-03.jpg" alt="Outdoor seating area with chairs around a table" />
+                <img src="/assets/photos/photo-18.jpg" alt="Elders gathered outdoors at the care center" />
                 <span className="card-tag">Gathering</span>
               </div>
               <div className="care-card-body">
@@ -51,7 +51,7 @@ export default function CareCenterPage() {
             </article>
             <article className="care-card" data-animate>
               <div className="care-card-media">
-                <img src="/assets/photos/photo-08.jpg" alt="Project feature image shared in local media coverage" />
+                <img src="/assets/photos/photo-19.jpg" alt="Elders seated near the living quarters at the care center" />
                 <span className="card-tag">Site</span>
               </div>
               <div className="care-card-body">
@@ -99,9 +99,9 @@ export default function CareCenterPage() {
             <h2>The first residents show why this project matters.</h2>
           </div>
           <div className="media-strip">
-            <img src="/assets/photos/photo-10.jpg" alt="Elder seated on a bed inside the care center" data-animate />
-            <img src="/assets/photos/photo-12.jpg" alt="Elder wrapped in white seated on a bed" data-animate />
-            <img src="/assets/photos/photo-09.jpg" alt="Elder woman at a community gathering" data-animate />
+            <img src="/assets/photos/photo-18.jpg" alt="Elders gathered outdoors at the care center" data-animate />
+            <img src="/assets/photos/photo-20.jpg" alt="Elders seated together outside the living quarters" data-animate />
+            <img src="/assets/photos/photo-21.jpg" alt="Residents seated together by the care center wall" data-animate />
           </div>
         </div>
       </section>
@@ -120,8 +120,8 @@ export default function CareCenterPage() {
             </Link>
           </div>
           <figure className="feature-media" data-animate>
-            <img src="/assets/photos/photo-04.jpg" alt="Inauguration program banner for Dirre Seniors Home Facilitation" />
-            <figcaption>Inauguration program and project launching workshop banner.</figcaption>
+            <img src="/assets/photos/photo-22.jpg" alt="Community leaders seated at the May 2026 launch workshop" />
+            <figcaption>Community leaders and guests at the May 2026 launch workshop.</figcaption>
           </figure>
         </div>
       </section>

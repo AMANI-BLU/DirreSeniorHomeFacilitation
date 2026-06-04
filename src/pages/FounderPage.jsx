@@ -37,7 +37,7 @@ export default function FounderPage() {
         className="quote-band quote-band-photo"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(35, 52, 42, 0.88), rgba(35, 52, 42, 0.88)), url('/assets/photos/photo-11.jpg')",
+            "linear-gradient(rgba(35, 52, 42, 0.88), rgba(35, 52, 42, 0.88)), url('/assets/photos/photo-23.jpg')",
         }}
       >
         <p className="quote-text" data-animate>
@@ -83,8 +83,8 @@ export default function FounderPage() {
             </Link>
           </div>
           <figure className="feature-media" data-animate>
-            <img src="/assets/photos/photo-05.jpg" alt="Project identity banner with Dirre Seniors Home Facilitation logo" />
-            <figcaption>Project launch workshop banner, May 2026.</figcaption>
+            <img src="/assets/photos/photo-22.jpg" alt="Community leaders seated at the May 2026 launch workshop" />
+            <figcaption>Community leaders at the project launch workshop, May 2026.</figcaption>
           </figure>
         </div>
       </section>

@@ -1,7 +1,7 @@
 const now = () => new Date().toISOString();
 
 export const defaultContent = {
-  version: 2,
+  version: 3,
   posts: [
     {
       id: "post-1",
@@ -56,8 +56,8 @@ export const defaultContent = {
           "Dirre Seniors Home Facilitation supports elders in Borana, Ethiopia through a respectful home and community care project.",
       },
       hero: {
-        image: "/assets/photos/photo-11.jpg",
-        imageAlt: "Elders seated together during a community gathering",
+        image: "/assets/photos/photo-23.jpg",
+        imageAlt: "Community members gathered at the May 2026 launch workshop",
         eyebrow: "Dhaabbata Kunuunsa Maangudoota Dirree",
         title: "Dirre Seniors Home Facilitation",
         lead:
@@ -80,9 +80,9 @@ export const defaultContent = {
           "Dirre Seniors Home Facilitation was established by Samuel Galgalo Dadacha, a local resident who later became a refugee in the United States and worked as a professional social worker. His connection to his homeland shaped a practical mission: help elders who have been overlooked and left to meet basic needs on their own.",
           "The Borana region is primarily pastoralist, and drought from 2020 to 2023 severely affected livelihoods. As many families lost livestock, older community members became especially vulnerable. The Senior Citizens Home Project responds with shelter, daily support, dignity, and a shared culture of compassion across generations.",
         ],
-        image: "/assets/photos/photo-12.jpg",
-        imageAlt: "An elder sitting on a bed inside the care center",
-        figcaption: "Simple care spaces designed around dignity, rest, and human attention.",
+        image: "/assets/photos/photo-19.jpg",
+        imageAlt: "Elders seated near the living quarters at the care center",
+        figcaption: "Elders gathered outside the living quarters at the care center.",
       },
       founderPreview: {
         eyebrow: "Founder",
@@ -150,8 +150,8 @@ export const defaultContent = {
         description: "Explore the rooms, gathering spaces, and first elders of the Dubuluk Care Center.",
       },
       hero: {
-        image: "/assets/photos/photo-02.jpg",
-        imageAlt: "Care center room with beds and a window",
+        image: "/assets/photos/photo-20.jpg",
+        imageAlt: "Elders seated outside the living quarters at the care center",
         eyebrow: "Dubuluk Care Center",
         title: "Dubuluk Care Center",
         deck:
@@ -165,8 +165,8 @@ export const defaultContent = {
           "Photo gallery for Dirre Seniors Home Facilitation, Dubuluk Care Center, project launch, and first elders.",
       },
       hero: {
-        image: "/assets/photos/photo-11.jpg",
-        imageAlt: "Elders seated together during the project gathering",
+        image: "/assets/photos/photo-18.jpg",
+        imageAlt: "Elders gathered outdoors at the Dirre Seniors Home site",
         eyebrow: "Gallery",
         title: "Project photo gallery",
         deck:
@@ -179,8 +179,8 @@ export const defaultContent = {
         description: "Support options for Dirre Seniors Home Facilitation and elder care in Borana, Ethiopia.",
       },
       hero: {
-        image: "/assets/photos/photo-03.jpg",
-        imageAlt: "Outdoor seating area at the care center",
+        image: "/assets/photos/photo-22.jpg",
+        imageAlt: "Community leaders seated at the May 2026 launch workshop",
         eyebrow: "Support the Mission",
         title: "Support the mission",
         deck:

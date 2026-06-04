@@ -212,7 +212,7 @@ export default function HomePage() {
             </article>
             <article className="care-card" data-animate>
               <div className="care-card-media">
-                <img src="/assets/photos/photo-03.jpg" alt="Outdoor seating area with chairs around a blue table" />
+                <img src="/assets/photos/photo-18.jpg" alt="Elders gathered outdoors at the care center" />
                 <span className="card-tag">Community</span>
               </div>
               <div className="care-card-body">
@@ -245,16 +245,16 @@ export default function HomePage() {
           </div>
           <div className="elder-story-grid">
             <figure data-animate>
-              <img src="/assets/photos/photo-10.jpg" alt="Elder seated on a bed inside the care center" />
-              <figcaption>Residents are welcomed into a respectful space for rest and care.</figcaption>
+              <img src="/assets/photos/photo-18.jpg" alt="Elders gathered outdoors at the Dirre Seniors Home site" />
+              <figcaption>Elders gather outdoors for conversation, shade, and community care.</figcaption>
             </figure>
             <figure data-animate>
-              <img src="/assets/photos/photo-12.jpg" alt="Elder wrapped in white seated on a bed" />
-              <figcaption>The project honors elders as pillars of community memory and identity.</figcaption>
+              <img src="/assets/photos/photo-19.jpg" alt="Elders seated near the living quarters at the care center" />
+              <figcaption>The living quarters give elders a visible, respected place in the project.</figcaption>
             </figure>
             <figure data-animate>
-              <img src="/assets/photos/photo-09.jpg" alt="Elder woman at the project gathering" />
-              <figcaption>Community gatherings connect families, local leaders, and supporters.</figcaption>
+              <img src="/assets/photos/photo-20.jpg" alt="Elders seated together outside the living quarters" />
+              <figcaption>Residents are welcomed into a shared environment of support and dignity.</figcaption>
             </figure>
           </div>
         </div>
@@ -263,14 +263,14 @@ export default function HomePage() {
       <section className="section section-event">
         <div className="section-inner two-column event-layout">
           <div className="event-image-stack" data-animate>
-            <img src="/assets/photos/photo-04.jpg" alt="Inauguration program banner for Dirre Seniors Home Facilitation" />
-            <img src="/assets/photos/photo-06.jpg" alt="Dubuluk Care Center site sign" />
+            <img src="/assets/photos/photo-22.jpg" alt="Community leaders seated at the May 2026 launch workshop" />
+            <img src="/assets/photos/photo-23.jpg" alt="Community audience gathered under the shelter" />
           </div>
           <div className="section-copy" data-animate>
             <p className="eyebrow">Project Launch</p>
-            <h2>Inauguration program and Dubuluk Care Center workshop.</h2>
+            <h2>Inauguration ceremony and Dubuluk Care Center workshop.</h2>
             <p>
-              The May 2026 launch workshop introduced the Dirre Seniors Home Facilitation and Dubuluk Care
+              The May 2026 launch ceremony introduced the Dirre Seniors Home Facilitation and Dubuluk Care
               Center project to the community. The banners carry the project identity in Afaan Oromo and English,
               emphasizing local ownership and the shared responsibility of caring for elders.
             </p>

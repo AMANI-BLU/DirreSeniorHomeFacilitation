@@ -65,8 +65,8 @@ export default function SupportPage() {
       <section className="section section-light" id="contact">
         <div className="section-inner two-column">
           <figure className="feature-media" data-animate>
-            <img src="/assets/photos/photo-06.jpg" alt="Dubuluk Care Center sign" />
-            <figcaption>Public project sign for the care center.</figcaption>
+            <img src="/assets/photos/photo-22.jpg" alt="Community leaders seated at the May 2026 launch workshop" />
+            <figcaption>May 2026 launch workshop for the care center project.</figcaption>
           </figure>
           <div className="section-copy contact-card-wrapper" data-animate>
             <p className="eyebrow">Get in Touch</p>

@@ -84,8 +84,8 @@ export default function AboutPage() {
       <section className="section section-event">
         <div className="section-inner two-column">
           <figure className="feature-media" data-animate>
-            <img src="/assets/photos/photo-11.jpg" alt="Elders seated together during a community gathering" />
-            <figcaption>Community gathering during the project launch period.</figcaption>
+            <img src="/assets/photos/photo-18.jpg" alt="Elders gathered outdoors at the Dirre Seniors Home site" />
+            <figcaption>Elders gathered outdoors at the care center site.</figcaption>
           </figure>
           <div className="section-copy" data-animate>
             <p className="eyebrow">Context</p>

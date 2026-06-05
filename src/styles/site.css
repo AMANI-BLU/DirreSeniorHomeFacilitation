@@ -4,8 +4,8 @@
   --paper: #fafaf8;
   --cream: #f5f3ef;
   --white: #ffffff;
-  --green: #4d7055;
-  --green-dark: #2b3f33;
+  --green: #3d5e45;
+  --green-dark: #1e3328;
   --blue: #3a6d8a;
   --orange: #c57235;
   --gold: #c9a84e;
@@ -305,9 +305,9 @@ a {
 .nav-cta:hover,
 .nav-cta:focus-visible {
   color: var(--white) !important;
-  background: #3f6349;
+  background: #2d4a38;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(74, 107, 82, 0.3);
+  box-shadow: 0 4px 14px rgba(61, 94, 69, 0.3);
 }
 
 .nav-cta[aria-current="page"] {
@@ -1200,7 +1200,7 @@ figcaption {
 
 .founder-preview {
   color: var(--white);
-  background: linear-gradient(135deg, var(--green-dark) 0%, #365544 50%, #3a6d5a 100%);
+  background: linear-gradient(135deg, #162822 0%, #1e3a2e 50%, #24443a 100%);
 }
 
 .founder-preview .section-copy p {
@@ -1608,8 +1608,8 @@ body.animations-ready [data-animate].is-visible {
 
 .site-footer {
   padding: 0;
-  color: rgba(255, 255, 255, 0.72);
-  background: #1a2b22;
+  color: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(180deg, #142420 0%, #0f1b16 100%);
 }
 
 .footer-inner {
@@ -1624,7 +1624,7 @@ body.animations-ready [data-animate].is-visible {
 .footer-col > strong {
   display: block;
   margin-bottom: 14px;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.4);
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 800;
@@ -1655,8 +1655,9 @@ body.animations-ready [data-animate].is-visible {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.65);
   font-weight: 600;
+  transition: color 160ms ease;
 }
 
 .footer-links a:hover,
@@ -1680,9 +1681,11 @@ body.animations-ready [data-animate].is-visible {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 16px clamp(18px, 4vw, 56px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.88rem;
+  padding: 18px clamp(18px, 4vw, 56px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .footer-bottom p {
@@ -2360,4 +2363,68 @@ body.animations-ready [data-animate].is-visible {
 
 .footer-social-link svg {
   flex-shrink: 0;
+}
+
+/* Gift Commitment Form Card */
+.gift-form-card {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.gift-form-content {
+  padding: clamp(28px, 4vw, 40px);
+}
+
+.gift-form-content h3 {
+  margin-bottom: 12px;
+  color: var(--green-dark);
+}
+
+.gift-form-content p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.gift-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gift-form-details {
+  padding: clamp(28px, 4vw, 40px);
+  background: var(--green-dark);
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gift-form-details p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.92rem;
+}
+
+.gift-form-details strong {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 760px) {
+  .gift-form-card {
+    grid-template-columns: 1fr;
+  }
 }

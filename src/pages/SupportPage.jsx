@@ -62,6 +62,53 @@ export default function SupportPage() {
         </div>
       </section>
 
+      <section className="section section-light" id="gift-form">
+        <div className="section-inner">
+          <div className="section-heading" data-animate>
+            <p className="eyebrow">Contribute</p>
+            <h2>Gift Commitment Form</h2>
+          </div>
+          <div className="gift-form-card" data-animate>
+            <div className="gift-form-content">
+              <h3>Ready to support the mission?</h3>
+              <p>
+                Download our official Gift Commitment Form to declare your support — whether through
+                cash donation, in-kind contribution, or property and equipment. Print, fill out,
+                and submit the form to our office or email it to our team.
+              </p>
+              <div className="gift-form-actions">
+                <a
+                  className="button button-primary"
+                  href="/assets/gift-commitment-form.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 8 }}>
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Open & Print Form
+                </a>
+                <a
+                  className="button button-ghost"
+                  href={`mailto:${page.contact?.email || "dirreseniorhomefacilitation@gmail.com"}?subject=Gift Commitment Form`}
+                >
+                  Email Completed Form
+                </a>
+              </div>
+            </div>
+            <div className="gift-form-details">
+              <p><strong>Submit to:</strong></p>
+              <p>Dirre Senior Home Facilitation</p>
+              <p>P.O. Box 220 Yaballo, Ethiopia</p>
+              <p>Tel: +251 954 72 93 00</p>
+              <p>{page.contact?.email || "dirreseniorhomefacilitation@gmail.com"}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section section-light" id="contact">
         <div className="section-inner two-column">
           <figure className="feature-media" data-animate>

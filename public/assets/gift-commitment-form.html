@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Commitment Form — Dirre Senior Home Facilitation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    color: #1c2b23;
+    background: #fff;
+    padding: 48px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #1e3328;
+  }
+
+  .form-header h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1e3328;
+    margin-bottom: 4px;
+  }
+
+  .form-header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e3328;
+    margin-bottom: 16px;
+  }
+
+  .form-header .contact-info {
+    font-size: 0.85rem;
+    color: #6b7d73;
+    line-height: 1.7;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+  }
+
+  .form-row label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+
+  .form-line {
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    margin-left: 12px;
+    min-height: 24px;
+  }
+
+  .subject-line {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 24px 0 12px;
+    color: #1e3328;
+  }
+
+  .greeting {
+    margin-bottom: 8px;
+  }
+
+  .commitment-text {
+    margin-bottom: 24px;
+    line-height: 1.8;
+  }
+
+  .commitment-text .inline-line {
+    display: inline-block;
+    width: 280px;
+    border-bottom: 1px solid #ccc;
+    vertical-align: bottom;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e3328;
+    margin: 28px 0 14px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .field-group {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .field-group label {
+    font-weight: 600;
+    font-size: 0.88rem;
+    min-width: 200px;
+  }
+
+  .field-group .line {
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    min-height: 22px;
+  }
+
+  .checkbox-group {
+    margin: 14px 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+  }
+
+  .checkbox-box {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #999;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .numbered-lines {
+    margin: 12px 0 20px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .numbered-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .numbered-line span {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #6b7d73;
+  }
+
+  .numbered-line .line {
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    min-height: 22px;
+  }
+
+  .thank-you {
+    margin: 32px 0 16px;
+    font-style: italic;
+    color: #6b7d73;
+  }
+
+  .signature-block {
+    margin: 28px 0;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+  }
+
+  .signature-block .sig-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #6b7d73;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+
+  .sig-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 14px;
+  }
+
+  .sig-field {
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .sig-field label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .sig-field .line {
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    min-height: 22px;
+  }
+
+  .acknowledgement {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 2px solid #1e3328;
+  }
+
+  .acknowledgement p {
+    margin-bottom: 12px;
+    font-style: italic;
+    color: #6b7d73;
+  }
+
+  .rep-info {
+    margin: 8px 0;
+    font-size: 0.92rem;
+  }
+
+  .rep-info strong {
+    color: #1e3328;
+  }
+
+  @media print {
+    body { padding: 24px 20px; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="form-header">
+  <h1>Dirre Senior Home Facilitation Ethiopia</h1>
+  <h2>Gift Commitment Form</h2>
+  <div class="contact-info">
+    P.O. Box 220 Yaballo, Ethiopia<br>
+    Tel: +251 954 72 93 00<br>
+    dirreseniorhomefacilitation@gmail.com
+  </div>
+</div>
+
+<div class="form-row">
+  <label>Date:</label>
+  <div class="form-line"></div>
+</div>
+
+<p class="subject-line">Subject: Gift Commitment Declaration</p>
+<p class="greeting">Dear Sir/Madam,</p>
+<p class="commitment-text">
+  I/We, <span class="inline-line"></span> hereby express our commitment to support Dirre Senior Home Facilitation in its mission and programs through the provision of a gift/contribution as detailed below.
+</p>
+
+<h3>1. Donor Information</h3>
+<div class="field-group"><label>Donor Name:</label><div class="line"></div></div>
+<div class="field-group"><label>Organization (if applicable):</label><div class="line"></div></div>
+<div class="field-group"><label>Address:</label><div class="line"></div></div>
+<div class="field-group"><label>Telephone:</label><div class="line"></div></div>
+<div class="field-group"><label>Email:</label><div class="line"></div></div>
+
+<h3>2. Gift Commitment Details</h3>
+<p style="margin-bottom: 12px;">I/We commit to providing the following support:</p>
+
+<p style="font-weight: 600; margin-bottom: 8px;">Type of Gift:</p>
+<div class="checkbox-group">
+  <div class="checkbox-item"><div class="checkbox-box"></div> Cash Donation</div>
+  <div class="checkbox-item"><div class="checkbox-box"></div> In-kind Contribution</div>
+  <div class="checkbox-item"><div class="checkbox-box"></div> Property/Equipment</div>
+  <div class="checkbox-item"><div class="checkbox-box"></div> Other: <div class="line" style="flex:1; border-bottom: 1px solid #ccc; min-height: 20px;"></div></div>
+</div>
+
+<h3>2.1. If Cash — Amount/Estimated Value</h3>
+<div class="field-group"><label>Amount:</label><div class="line"></div></div>
+<p style="font-weight: 600; margin: 14px 0 8px;">Payment/Delivery Schedule:</p>
+<div class="checkbox-group">
+  <div class="checkbox-item"><div class="checkbox-box"></div> One-time contribution on <div class="line" style="flex:1; border-bottom: 1px solid #ccc; min-height: 20px;"></div></div>
+  <div class="checkbox-item"><div class="checkbox-box"></div> Installments as follows:</div>
+</div>
+<div class="numbered-lines">
+  <div class="numbered-line"><span>1.</span><div class="line"></div></div>
+  <div class="numbered-line"><span>2.</span><div class="line"></div></div>
+  <div class="numbered-line"><span>3.</span><div class="line"></div></div>
+</div>
+
+<h3>2.2. If In-Kind Contribution — List of Materials</h3>
+<div class="numbered-lines">
+  <div class="numbered-line"><span>1.</span><div class="line"></div></div>
+  <div class="numbered-line"><span>2.</span><div class="line"></div></div>
+  <div class="numbered-line"><span>3.</span><div class="line"></div></div>
+</div>
+
+<h3>2.3. If Property/Equipment</h3>
+<div class="numbered-lines">
+  <div class="numbered-line"><span>1.</span><div class="line"></div></div>
+  <div class="numbered-line"><span>2.</span><div class="line"></div></div>
+  <div class="numbered-line"><span>3.</span><div class="line"></div></div>
+</div>
+
+<p class="thank-you">Thank you for the opportunity to contribute to your valuable work.</p>
+<p>Sincerely,</p>
+
+<div class="signature-block">
+  <div class="sig-title">Donor Signature</div>
+  <div class="sig-row">
+    <div class="sig-field"><label>Name:</label><div class="line"></div></div>
+    <div class="sig-field"><label>Date:</label><div class="line"></div></div>
+  </div>
+  <div class="sig-row">
+    <div class="sig-field"><label>Signature:</label><div class="line"></div></div>
+  </div>
+</div>
+
+<div class="acknowledgement">
+  <p>On behalf of Dirre Senior Home Facilitation, we gratefully acknowledge this gift commitment.</p>
+  <div class="rep-info"><strong>Authorized Representative:</strong> Samuel Galgalo</div>
+  <div class="rep-info"><strong>Position:</strong> Founder &amp; Executive Director</div>
+  <div class="sig-row" style="margin-top: 16px;">
+    <div class="sig-field"><label>Signature:</label><div class="line"></div></div>
+    <div class="sig-field"><label>Date:</label><div class="line"></div></div>
+  </div>
+</div>
+
+</body>
+</html>

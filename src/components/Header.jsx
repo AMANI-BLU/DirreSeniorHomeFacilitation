@@ -38,13 +38,30 @@ export default function Header() {
   }, [navOpen]);
 
   useEffect(() => {
+    let rafId = null;
     const updateScrolled = () => {
-      setIsScrolled(window.scrollY > 18);
+      rafId = null;
+      /* Hysteresis: require scrolling past 32px to collapse, but only
+         re-expand when within 4px of the top. This prevents the flickering
+         toggle that happens when the user hovers near a single threshold. */
+      setIsScrolled((prev) => {
+        if (prev) return window.scrollY > 4;   // already collapsed → only re-show near top
+        return window.scrollY > 32;             // not yet collapsed → need to scroll further
+      });
+    };
+
+    const onScroll = () => {
+      if (rafId === null) {
+        rafId = requestAnimationFrame(updateScrolled);
+      }
     };
 
     updateScrolled();
-    window.addEventListener("scroll", updateScrolled, { passive: true });
-    return () => window.removeEventListener("scroll", updateScrolled);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (

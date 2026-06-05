@@ -126,15 +126,15 @@ export default function SupportPage() {
                 </div>
                 <div className="contact-item-content">
                   <span className="contact-label">Email</span>
-                  <a href={`mailto:${page.contact?.email || "Boranaseniorhome@gmail.com"}`} className="contact-link">
-                    {page.contact?.email || "Boranaseniorhome@gmail.com"}
+                  <a href={`mailto:${page.contact?.email || "dirreseniorhomefacilitation@gmail.com"}`} className="contact-link">
+                    {page.contact?.email || "dirreseniorhomefacilitation@gmail.com"}
                   </a>
                 </div>
               </div>
             </div>
             
             <div className="contact-actions">
-              <a href={`mailto:${page.contact?.email || "Boranaseniorhome@gmail.com"}`} className="button button-primary">
+              <a href={`mailto:${page.contact?.email || "dirreseniorhomefacilitation@gmail.com"}`} className="button button-primary">
                 Email Our Team
               </a>
               <a href={`tel:${(page.contact?.tel || "+251954729300").replace(/\s+/g, "")}`} className="button button-ghost">

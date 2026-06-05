@@ -61,7 +61,7 @@ export const defaultContent = {
         eyebrow: "Dhaabbata Kunuunsa Maangudoota Dirree",
         title: "Dirre Seniors Home Facilitation",
         lead:
-          "A community care project in Borana, Ethiopia—creating a safe, respectful home for elders affected by drought, hardship, and displacement.",
+          "A community care project in Borana, Ethiopia—creating a safe, respectful home for elders affected by drought, hardship, and displacement. Together, we are building a future where every elder is cared for with dignity and belonging.",
         metaTags: ["Borana, Ethiopia", "May 2026 workshop", "Dignity-first elder care"],
         motto: "Elders: Our Pillars of Respect · Borana",
       },
@@ -77,7 +77,7 @@ export const defaultContent = {
         eyebrow: "Why This Home Matters",
         heading: "Built from a lasting responsibility to elders.",
         paragraphs: [
-          "Dirre Seniors Home Facilitation was established by Samuel Galgalo Dadacha, a local resident who later became a refugee in the United States and worked as a professional social worker. His connection to his homeland shaped a practical mission: help elders who have been overlooked and left to meet basic needs on their own.",
+          "Dirre Seniors Home Facilitation was established by Samuel Galgalo Dadacha, a local resident who later became a refugee in Canada and worked as a professional social worker. His connection to his homeland shaped a practical mission: help elders who have been overlooked and left to meet basic needs on their own.",
           "The Borana region is primarily pastoralist, and drought from 2020 to 2023 severely affected livelihoods. As many families lost livestock, older community members became especially vulnerable. The Senior Citizens Home Project responds with shelter, daily support, dignity, and a shared culture of compassion across generations.",
         ],
         image: "/assets/photos/photo-19.jpg",
@@ -88,7 +88,7 @@ export const defaultContent = {
         eyebrow: "Founder",
         heading: "Samuel Galgalo Dadacha connects social work with homeland responsibility.",
         body:
-          "Samuel was raised with the values of Borana community life, later resettled in the United States as a refugee, and worked as a professional social worker. His experience shaped a practical belief: elders need care systems that protect dignity while responding to real daily needs.",
+          "Samuel was raised with the values of Borana community life, later resettled in Canada as a refugee, and worked as a professional social worker. His experience shaped a practical belief: elders need care systems that protect dignity while responding to real daily needs.",
         image: "/assets/photos/founder-samuel.png",
       },
       care: {
@@ -191,7 +191,7 @@ export const defaultContent = {
         position: "Founder & Executive Director",
         address: "P.O. Box 220 Yaballo, Ethiopia",
         tel: "+251 954 72 93 00",
-        email: "Boranaseniorhome@gmail.com",
+        email: "dirreseniorhomefacilitation@gmail.com",
       },
     },
   },

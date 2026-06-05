@@ -61,7 +61,7 @@ export default function AboutPage() {
             <h2>Created from a direct connection to home.</h2>
             <p>
               The project was established by Samuel Galgalo Dadacha, a local resident who later became a refugee in the
-              United States and worked as a professional social worker. Samuel has remained deeply connected to his
+              Canada and worked as a professional social worker. Samuel has remained deeply connected to his
               homeland and passionate about helping elders who have been overlooked.
             </p>
             <p>

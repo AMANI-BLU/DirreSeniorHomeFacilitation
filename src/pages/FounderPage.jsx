@@ -22,7 +22,7 @@ export default function FounderPage() {
             <h2>From social work experience to elder care action.</h2>
             <p>
               Samuel Galgalo Dadacha was born from the community this project serves. After becoming a refugee in the
-              United States, he built professional experience as a social worker while keeping a strong connection to
+              Canada, he built professional experience as a social worker while keeping a strong connection to
               his homeland.
             </p>
             <p>

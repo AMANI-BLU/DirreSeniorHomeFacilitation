@@ -1,9 +1,18 @@
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import GalleryGrid from "../components/GalleryGrid.jsx";
 import ProjectNews from "../components/ProjectNews.jsx";
 import { useContent } from "../context/ContentContext.jsx";
 import { galleryItems } from "../data/gallery.js";
 import { usePageMeta } from "../hooks/usePageMeta.js";
+
+const heroSlides = [
+  { src: "/assets/photos/photo-23.jpg", alt: "Community audience gathered under the shelter during the launch workshop" },
+  { src: "/assets/photos/photo-18.jpg", alt: "Elders gathered outdoors at the Dirre Seniors Home site" },
+  { src: "/assets/photos/photo-07.jpg", alt: "Entrance to the Dirre Seniors Home Facilitation site" },
+];
+
+const GALLERY_PREVIEW_COUNT = 6;
 
 export default function HomePage() {
   const { getPage } = useContent();
@@ -12,52 +21,50 @@ export default function HomePage() {
 
   usePageMeta(page.meta);
 
+  /* Hero carousel state */
+  const [activeSlide, setActiveSlide] = useState(0);
+  const timerRef = useRef(null);
+
+  const goToSlide = useCallback((idx) => {
+    setActiveSlide(idx);
+  }, []);
+
+  /* Auto-advance every 6 seconds */
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  /* Reset timer when user clicks a dot */
+  const handleDotClick = useCallback((idx) => {
+    clearInterval(timerRef.current);
+    goToSlide(idx);
+    timerRef.current = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
+  }, [goToSlide]);
+
+  /* Gallery preview — only show a limited set on home page */
+  const galleryPreview = galleryItems.slice(0, GALLERY_PREVIEW_COUNT);
+
   return (
     <main id="top">
       <section className="hero" aria-labelledby="hero-title">
-        <img className="hero-bg" src={hero.image} alt={hero.imageAlt} />
+        {heroSlides.map((slide, idx) => (
+          <img
+            key={slide.src}
+            className={`hero-bg hero-slide${idx === activeSlide ? " hero-slide-active" : ""}`}
+            src={slide.src}
+            alt={slide.alt}
+          />
+        ))}
         <div className="hero-overlay"></div>
         <div className="section-inner hero-inner" data-animate>
           <p className="eyebrow">{hero.eyebrow}</p>
           <h1 id="hero-title">{hero.title}</h1>
           <p className="hero-lead">{hero.lead}</p>
-          <ul className="hero-meta" aria-label="Project at a glance">
-            {hero.metaTags.map((tag, idx) => {
-              let icon;
-              if (idx === 0) {
-                // Borana, Ethiopia -> Map Pin
-                icon = (
-                  <svg className="hero-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                );
-              } else if (idx === 1) {
-                // May 2026 workshop -> Calendar
-                icon = (
-                  <svg className="hero-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
-                );
-              } else {
-                // Dignity-first elder care -> Heart
-                icon = (
-                  <svg className="hero-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                  </svg>
-                );
-              }
-              return (
-                <li key={tag} className="hero-meta-chip">
-                  {icon}
-                  <span>{tag}</span>
-                </li>
-              );
-            })}
-          </ul>
           <div className="hero-actions" aria-label="Primary actions">
             <Link className="button button-primary" to="/about">
               Explore the Project
@@ -67,6 +74,19 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="hero-motto">{hero.motto}</p>
+
+          {/* Carousel dots */}
+          <div className="hero-dots" aria-label="Slideshow controls">
+            {heroSlides.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                className={`hero-dot${idx === activeSlide ? " hero-dot-active" : ""}`}
+                aria-label={`Go to slide ${idx + 1}`}
+                onClick={() => handleDotClick(idx)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -290,13 +310,9 @@ export default function HomePage() {
             <p className="eyebrow">Photo Gallery</p>
             <h2 className="section-title">
               Facilities, gatherings, and community moments.
-              <Link className="title-accent" to="/gallery">
-                Open full gallery
-              </Link>
             </h2>
-            <p className="gallery-intro">Click any image to view it larger.</p>
           </div>
-          <GalleryGrid items={galleryItems} />
+          <GalleryGrid items={galleryPreview} />
           <div className="section-action" data-animate>
             <Link className="button button-primary" to="/gallery">
               Open Full Gallery

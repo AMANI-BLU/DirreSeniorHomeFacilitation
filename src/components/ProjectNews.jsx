@@ -14,11 +14,17 @@ export default function ProjectNews({ section }) {
           <h2>{section.heading}</h2>
         </div>
         <div className="news-grid">
-          {publishedPosts.slice(0, 3).map((post) => (
-            <article className="info-card" key={post.id} data-animate>
-              <p className="news-date">{formatAdminDate(post.updatedAt)}</p>
-              <h3>{post.title}</h3>
-              <p>{post.excerpt}</p>
+          {publishedPosts.slice(0, 3).map((post, idx) => (
+            <article className="news-card" key={post.id} data-animate>
+              <span className="news-card-meta">
+                <span className="news-card-date">{formatAdminDate(post.updatedAt)}</span>
+                <span className="news-card-index">{String(idx + 1).padStart(2, "0")}</span>
+              </span>
+              <h3 className="news-card-title">{post.title}</h3>
+              <p className="news-card-excerpt">{post.excerpt}</p>
+              <span className="news-card-cta" aria-hidden="true">
+                Read update
+              </span>
             </article>
           ))}
         </div>

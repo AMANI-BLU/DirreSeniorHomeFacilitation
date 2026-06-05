@@ -51,17 +51,20 @@ export default function FounderPage() {
             <p className="eyebrow">Leadership Focus</p>
             <h2>Samuel's work is centered on practical dignity.</h2>
           </div>
-          <div className="timeline-grid">
-            <article className="timeline-card" data-animate>
-              <h3>Local Roots</h3>
+          <div className="focus-grid">
+            <article className="focus-card" data-animate>
+              <span className="focus-card-numeral">01</span>
+              <h3 className="focus-card-title">Local Roots</h3>
               <p>His commitment begins with a lasting relationship to Borana community life and its elders.</p>
             </article>
-            <article className="timeline-card" data-animate>
-              <h3>Social Work</h3>
+            <article className="focus-card" data-animate>
+              <span className="focus-card-numeral">02</span>
+              <h3 className="focus-card-title">Social Work</h3>
               <p>Professional social work shaped his attention to safety, support systems, and daily human needs.</p>
             </article>
-            <article className="timeline-card" data-animate>
-              <h3>Home Building</h3>
+            <article className="focus-card" data-animate>
+              <span className="focus-card-numeral">03</span>
+              <h3 className="focus-card-title">Home Building</h3>
               <p>The project turns concern into shelter, gathering space, and a care model the community can grow.</p>
             </article>
           </div>

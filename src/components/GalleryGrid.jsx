@@ -12,10 +12,18 @@ export default function GalleryGrid({ items }) {
           type="button"
           onClick={() => openLightbox({ src: item.src, alt: item.alt, caption: item.caption })}
         >
-          <img src={item.src} alt={item.alt} />
-          <span className="gallery-label">
-            <span className="gallery-label-category">{item.category}</span>
-            <span className="gallery-label-title">{item.title}</span>
+          <span className="gallery-item-media">
+            <img src={item.src} alt={item.alt} loading="lazy" />
+            {item.category ? (
+              <span className="gallery-item-tag">{item.category}</span>
+            ) : null}
+          </span>
+          <span className="gallery-item-body">
+            {item.title ? <h3 className="gallery-item-title">{item.title}</h3> : null}
+            {item.caption ? <p className="gallery-item-caption">{item.caption}</p> : null}
+            <span className="gallery-item-cta" aria-hidden="true">
+              View Photo
+            </span>
           </span>
         </button>
       ))}

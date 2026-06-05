@@ -9,9 +9,17 @@ const navItems = [
   { to: "/gallery", label: "Gallery" },
 ];
 
+/* Collapse thresholds.
+   - COLLAPSE_AT: scroll past this → hide the top-bar and shrink the header.
+   - EXPAND_AT:   scroll back above this → re-show the top-bar.
+   The gap (dead-zone) keeps the toggle from bouncing when scrollY flickers
+   across a single threshold (touchpads / smooth scroll / overscroll bounce). */
+const COLLAPSE_AT = 24;
+const EXPAND_AT = 8;
+
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   const closeNav = () => {
     setNavOpen(false);
@@ -26,6 +34,13 @@ export default function Header() {
     });
   };
 
+  /* Close mobile nav on route change. */
+  useEffect(() => {
+    closeNav();
+    /* closeNav is stable (only setState + classList) — no deps needed. */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     const onKeyDown = (event) => {
       if (event.key === "Escape" && navOpen) {
@@ -38,34 +53,49 @@ export default function Header() {
   }, [navOpen]);
 
   useEffect(() => {
+    /* Drive the header state from a single rAF + a single state-update
+       per frame. This is the part that was glitchy before: the previous
+       version had two separate rAFs and updated via setState in scroll
+       callback, which could fire mid-transition when the user hovered
+       near a single threshold. */
+
     let rafId = null;
-    const updateScrolled = () => {
+    let mounted = true;
+
+    const apply = () => {
       rafId = null;
-      /* Hysteresis: require scrolling past 32px to collapse, but only
-         re-expand when within 4px of the top. This prevents the flickering
-         toggle that happens when the user hovers near a single threshold. */
-      setIsScrolled((prev) => {
-        if (prev) return window.scrollY > 4;   // already collapsed → only re-show near top
-        return window.scrollY > 32;             // not yet collapsed → need to scroll further
+      if (!mounted) return;
+      const y = window.scrollY;
+      /* Hysteresis: collapse once past COLLAPSE_AT, only re-expand when
+         within EXPAND_AT of the top. The dead-zone stops the toggle
+         from bouncing when scrollY flickers across a single value. */
+      setCollapsed((prev) => {
+        if (prev) return y > EXPAND_AT;
+        return y > COLLAPSE_AT;
       });
     };
 
     const onScroll = () => {
       if (rafId === null) {
-        rafId = requestAnimationFrame(updateScrolled);
+        rafId = requestAnimationFrame(apply);
       }
     };
 
-    updateScrolled();
+    /* Initial read — important for deep-links / restored scroll positions
+       so the header renders the correct state on first paint. */
+    apply();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
+      mounted = false;
       window.removeEventListener("scroll", onScroll);
       if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, []);
 
   return (
-    <div className={`header-stack${isScrolled ? " is-scrolled" : ""}${navOpen ? " is-nav-open" : ""}`}>
+    <div
+      className={`header-stack${collapsed ? " is-scrolled" : ""}${navOpen ? " is-nav-open" : ""}`}
+    >
       <div className="top-bar">
         <div className="top-bar-inner">
           <p className="top-bar-location">Borana, Ethiopia</p>

@@ -61,7 +61,7 @@ export default function HomePage() {
           />
         ))}
         <div className="hero-overlay"></div>
-        <div className="section-inner hero-inner" data-animate>
+        <div className="section-inner hero-inner" data-animate="zoom">
           <p className="eyebrow">{hero.eyebrow}</p>
           <h1 id="hero-title">{hero.title}</h1>
           <p className="hero-lead">{hero.lead}</p>
@@ -178,13 +178,31 @@ export default function HomePage() {
 
       <section className="section founder-preview">
         <div className="section-inner founder-preview-grid">
-          <figure className="founder-media" data-animate>
+          <figure className="founder-portrait-card" data-animate="left">
+            <span className="founder-portrait-card-label">Founder</span>
             <img src={founderPreview.image} alt="Samuel Galgalo Dadacha, founder" />
+            <figcaption className="founder-portrait-card-caption">
+              Samuel Galgalo Dadacha
+            </figcaption>
           </figure>
-          <div className="section-copy" data-animate>
+          <div className="section-copy founder-preview-content" data-animate="right">
             <p className="eyebrow">{founderPreview.eyebrow}</p>
             <h2>{founderPreview.heading}</h2>
             <p>{founderPreview.body}</p>
+            <ul className="founder-credentials" aria-label="Founder background">
+              <li className="founder-credential">
+                <span className="founder-credential-label">Background</span>
+                <span className="founder-credential-value">Social Worker</span>
+              </li>
+              <li className="founder-credential">
+                <span className="founder-credential-label">Community</span>
+                <span className="founder-credential-value">Borana, Ethiopia</span>
+              </li>
+              <li className="founder-credential">
+                <span className="founder-credential-label">Focus</span>
+                <span className="founder-credential-value">Practical Dignity</span>
+              </li>
+            </ul>
             <Link className="button button-primary" to="/founder">
               Founder Story
             </Link>
@@ -264,18 +282,51 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="elder-story-grid">
-            <figure data-animate>
-              <img src="/assets/photos/photo-18.jpg" alt="Elders gathered outdoors at the Dirre Seniors Home site" />
-              <figcaption>Elders gather outdoors for conversation, shade, and community care.</figcaption>
-            </figure>
-            <figure data-animate>
-              <img src="/assets/photos/photo-19.jpg" alt="Elders seated near the living quarters at the care center" />
-              <figcaption>The living quarters give elders a visible, respected place in the project.</figcaption>
-            </figure>
-            <figure data-animate>
-              <img src="/assets/photos/photo-20.jpg" alt="Elders seated together outside the living quarters" />
-              <figcaption>Residents are welcomed into a shared environment of support and dignity.</figcaption>
-            </figure>
+            <article className="elder-story-card" data-animate>
+              <span className="elder-story-card-media">
+                <img src="/assets/photos/photo-18.jpg" alt="Elders gathered outdoors at the Dirre Seniors Home site" />
+                <span className="elder-story-card-tag">Elder Story</span>
+              </span>
+              <span className="elder-story-card-body">
+                <h3 className="elder-story-card-title">Gathering for conversation and shade</h3>
+                <p className="elder-story-card-text">
+                  Elders gather outdoors for conversation, shade, and community care.
+                </p>
+                <Link className="elder-story-card-cta" to="/about">
+                  Read their story
+                </Link>
+              </span>
+            </article>
+            <article className="elder-story-card" data-animate>
+              <span className="elder-story-card-media">
+                <img src="/assets/photos/photo-19.jpg" alt="Elders seated near the living quarters at the care center" />
+                <span className="elder-story-card-tag">Elder Story</span>
+              </span>
+              <span className="elder-story-card-body">
+                <h3 className="elder-story-card-title">A visible, respected place to live</h3>
+                <p className="elder-story-card-text">
+                  The living quarters give elders a visible, respected place in the project.
+                </p>
+                <Link className="elder-story-card-cta" to="/about">
+                  Read their story
+                </Link>
+              </span>
+            </article>
+            <article className="elder-story-card" data-animate>
+              <span className="elder-story-card-media">
+                <img src="/assets/photos/photo-20.jpg" alt="Elders seated together outside the living quarters" />
+                <span className="elder-story-card-tag">Elder Story</span>
+              </span>
+              <span className="elder-story-card-body">
+                <h3 className="elder-story-card-title">Welcomed into shared dignity</h3>
+                <p className="elder-story-card-text">
+                  Residents are welcomed into a shared environment of support and dignity.
+                </p>
+                <Link className="elder-story-card-cta" to="/about">
+                  Read their story
+                </Link>
+              </span>
+            </article>
           </div>
         </div>
       </section>

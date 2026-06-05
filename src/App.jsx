@@ -6,6 +6,7 @@ import CareCenterPage from "./pages/CareCenterPage.jsx";
 import FounderPage from "./pages/FounderPage.jsx";
 import GalleryPage from "./pages/GalleryPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 import SupportPage from "./pages/SupportPage.jsx";
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="support" element={<SupportPage />} />
       </Route>
       <Route path="admin" element={<AdminPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

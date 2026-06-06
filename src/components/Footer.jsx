@@ -56,7 +56,7 @@ export default function Footer() {
           <div className="footer-social" aria-label="Follow us on social media">
             <span className="footer-social-label">Follow us</span>
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/profile.php?id=61590348581465"
               target="_blank"
               rel="noopener noreferrer" 
               aria-label="Follow Dirre Seniors Home on Facebook"

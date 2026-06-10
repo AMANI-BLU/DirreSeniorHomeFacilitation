@@ -5,6 +5,7 @@ import { useContent } from "../context/ContentContext.jsx";
 
 const editableSections = {
   home: [
+    { key: "meta", label: "Page settings" },
     { key: "hero", label: "Hero banner" },
     { key: "visionMission", label: "Vision & Mission" },
     { key: "about", label: "Why This Home Matters" },
@@ -14,13 +15,27 @@ const editableSections = {
     { key: "news", label: "News section heading" },
   ],
   about: [
+    { key: "meta", label: "Page settings" },
     { key: "hero", label: "Page hero" },
     { key: "visionMission", label: "Vision & Mission" },
   ],
-  founder: [{ key: "hero", label: "Page hero" }],
-  careCenter: [{ key: "hero", label: "Page hero" }],
-  gallery: [{ key: "hero", label: "Page hero" }],
-  support: [{ key: "hero", label: "Page hero" }],
+  founder: [
+    { key: "meta", label: "Page settings" },
+    { key: "hero", label: "Page hero" },
+  ],
+  careCenter: [
+    { key: "meta", label: "Page settings" },
+    { key: "hero", label: "Page hero" },
+  ],
+  gallery: [
+    { key: "meta", label: "Page settings" },
+    { key: "hero", label: "Page hero" },
+  ],
+  support: [
+    { key: "meta", label: "Page settings" },
+    { key: "hero", label: "Page hero" },
+    { key: "contact", label: "Contact details" },
+  ],
 };
 
 export default function AdminPages() {
@@ -72,32 +87,38 @@ export default function AdminPages() {
 
   return (
     <>
-      <div className="admin-toolbar">
-        <label className="admin-search">
-          <span className="visually-hidden">Select page</span>
-          <select value={pageKey} onChange={(event) => setPageKey(event.target.value)} aria-label="Select page">
-            {pageList.map((item) => (
-              <option key={item.key} value={item.key}>
-                {item.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="admin-search">
-          <span className="visually-hidden">Select section</span>
-          <select value={sectionKey} onChange={(event) => setSectionKey(event.target.value)} aria-label="Select section">
-            {sections.map((item) => (
-              <option key={item.key} value={item.key}>
-                {item.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        {pageInfo ? (
-          <Link className="button button-ghost" to={pageInfo.path} target="_blank" rel="noreferrer">
-            View page
-          </Link>
-        ) : null}
+      <div className="admin-toolbar admin-page-toolbar">
+        <div>
+          <strong>Edit page:</strong> {pageInfo?.name}
+          <span className="admin-page-path">{pageInfo?.path}</span>
+        </div>
+        <div className="admin-toolbar-actions">
+          <label className="admin-search admin-select-group">
+            <span className="visually-hidden">Select page</span>
+            <select className="admin-select" value={pageKey} onChange={(event) => setPageKey(event.target.value)} aria-label="Select page">
+              {pageList.map((item) => (
+                <option key={item.key} value={item.key}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="admin-search admin-select-group">
+            <span className="visually-hidden">Select section</span>
+            <select className="admin-select" value={sectionKey} onChange={(event) => setSectionKey(event.target.value)} aria-label="Select section">
+              {sections.map((item) => (
+                <option key={item.key} value={item.key}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          {pageInfo ? (
+            <Link className="button button-ghost" to={pageInfo.path} target="_blank" rel="noreferrer">
+              View page
+            </Link>
+          ) : null}
+        </div>
       </div>
       <div className="admin-layout-split">
         <div className="admin-card">
@@ -237,6 +258,82 @@ export default function AdminPages() {
                 </label>
               ))
             : null}
+
+          {"image" in draft ? (
+            <label>
+              Image path
+              <input type="text" value={draft.image ?? ""} onChange={(event) => updateField("image", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"imageAlt" in draft ? (
+            <label>
+              Image alt text
+              <input type="text" value={draft.imageAlt ?? ""} onChange={(event) => updateField("imageAlt", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"figcaption" in draft ? (
+            <label>
+              Image caption
+              <input type="text" value={draft.figcaption ?? ""} onChange={(event) => updateField("figcaption", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"person" in draft ? (
+            <label>
+              Contact name
+              <input type="text" value={draft.person ?? ""} onChange={(event) => updateField("person", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"position" in draft ? (
+            <label>
+              Contact role
+              <input type="text" value={draft.position ?? ""} onChange={(event) => updateField("position", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"address" in draft ? (
+            <label>
+              Address
+              <input type="text" value={draft.address ?? ""} onChange={(event) => updateField("address", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"tel" in draft ? (
+            <label>
+              Phone number
+              <input type="text" value={draft.tel ?? ""} onChange={(event) => updateField("tel", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"email" in draft ? (
+            <label>
+              Email address
+              <input type="email" value={draft.email ?? ""} onChange={(event) => updateField("email", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"description" in draft ? (
+            <label>
+              Meta description
+              <textarea rows={3} value={draft.description ?? ""} onChange={(event) => updateField("description", event.target.value)} />
+            </label>
+          ) : null}
+          <div className="admin-preview">
+            <h2>Section preview</h2>
+            <p>
+              <strong>Section:</strong> {sections.find((item) => item.key === sectionKey)?.label}
+            </p>
+            {draft.title ? <p><strong>Title:</strong> {draft.title}</p> : null}
+            {draft.heading ? <p><strong>Heading:</strong> {draft.heading}</p> : null}
+            {draft.lead ? <p>{draft.lead}</p> : null}
+            {draft.body ? <p>{draft.body}</p> : null}
+            {draft.image ? <p><strong>Image path:</strong> {draft.image}</p> : null}
+            {draft.imageAlt ? <p><strong>Alt text:</strong> {draft.imageAlt}</p> : null}
+            {draft.figcaption ? <p><strong>Caption:</strong> {draft.figcaption}</p> : null}
+          </div>
 
           {"image" in draft ? (
             <label>

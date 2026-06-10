@@ -1,4 +1,5 @@
 import { defaultContent } from "./defaultContent.js";
+import { supabase } from "../lib/supabaseClient.js";
 
 const STORAGE_KEY = "dirre-senior-home-cms";
 
@@ -21,6 +22,47 @@ export function loadContent() {
 export function saveContent(content) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(content));
   window.dispatchEvent(new CustomEvent("dirre-content-updated"));
+}
+
+export async function loadRemoteContent() {
+  try {
+    const { data, error } = await supabase
+      .from("site_content")
+      .select("data")
+      .eq("id", "site-content")
+      .single();
+
+    if (error) {
+      if (error.code === "PGRST116" || String(error.details).includes("Result contains no rows")) {
+        return null;
+      }
+      console.error("Supabase load error:", error);
+      return null;
+    }
+
+    return mergeContent(data?.data ?? null);
+  } catch (error) {
+    console.error("Supabase load failed:", error);
+    return null;
+  }
+}
+
+export async function saveRemoteContent(content) {
+  try {
+    const { error } = await supabase
+      .from("site_content")
+      .upsert({ id: "site-content", data: content }, { onConflict: "id" });
+
+    if (error) {
+      console.error("Supabase save error:", error);
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.error("Supabase save failed:", error);
+    return false;
+  }
 }
 
 export function resetContent() {
@@ -73,6 +115,7 @@ function mergeContent(parsed) {
 
   return {
     version: parsed.version ?? base.version,
+    site: parsed.site ?? base.site,
     posts: Array.isArray(parsed.posts) ? parsed.posts : base.posts,
     pages: {
       ...base.pages,

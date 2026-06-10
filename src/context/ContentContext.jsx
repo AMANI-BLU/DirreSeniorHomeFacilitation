@@ -1,6 +1,15 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { createEmptyPost, defaultContent } from "../cms/defaultContent.js";
-import { exportContentJson, importContentJson, loadContent, resetContent, saveContent, slugify } from "../cms/contentStore.js";
+import {
+  exportContentJson,
+  importContentJson,
+  loadContent,
+  loadRemoteContent,
+  resetContent,
+  saveContent,
+  saveRemoteContent,
+  slugify,
+} from "../cms/contentStore.js";
 
 const ContentContext = createContext(null);
 
@@ -10,6 +19,24 @@ export function ContentProvider({ children }) {
 
   const refresh = useCallback(() => {
     setContent(loadContent());
+  }, []);
+
+  useEffect(() => {
+    let mounted = true;
+
+    async function syncRemote() {
+      const remoteContent = await loadRemoteContent();
+      if (!mounted) return;
+      if (remoteContent) {
+        setContent(remoteContent);
+        saveContent(remoteContent);
+      }
+    }
+
+    syncRemote();
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -25,6 +52,12 @@ export function ContentProvider({ children }) {
   const persist = useCallback((next) => {
     setContent(next);
     saveContent(next);
+    saveRemoteContent(next).then((ok) => {
+      if (!ok) {
+        setSaveMessage("Saved locally, but Supabase sync failed.");
+        window.setTimeout(() => setSaveMessage(""), 2400);
+      }
+    });
     setSaveMessage("Changes saved.");
     window.setTimeout(() => setSaveMessage(""), 2400);
   }, []);
@@ -90,6 +123,19 @@ export function ContentProvider({ children }) {
     [content, persist],
   );
 
+  const updateSite = useCallback(
+    (patch) => {
+      persist({
+        ...content,
+        site: {
+          ...(content.site ?? defaultContent.site),
+          ...patch,
+        },
+      });
+    },
+    [content, persist],
+  );
+
   const updatePost = useCallback(
     (postId, patch) => {
       persist({
@@ -131,6 +177,7 @@ export function ContentProvider({ children }) {
       recentActivity,
       updatePage,
       updatePageSection,
+      updateSite,
       updatePost,
       addPost,
       deletePost,

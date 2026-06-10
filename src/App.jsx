@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import SiteLayout from "./components/SiteLayout.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import AdminLogin from "./pages/AdminLogin.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import CareCenterPage from "./pages/CareCenterPage.jsx";
 import FounderPage from "./pages/FounderPage.jsx";
@@ -8,6 +9,7 @@ import GalleryPage from "./pages/GalleryPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import SupportPage from "./pages/SupportPage.jsx";
+import { RequireAdmin } from "./context/AuthContext.jsx";
 
 export default function App() {
   return (
@@ -20,7 +22,10 @@ export default function App() {
         <Route path="gallery" element={<GalleryPage />} />
         <Route path="support" element={<SupportPage />} />
       </Route>
-      <Route path="admin" element={<AdminPage />} />
+      <Route path="admin">
+        <Route index element={<RequireAdmin><AdminPage /></RequireAdmin>} />
+        <Route path="login" element={<AdminLogin />} />
+      </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

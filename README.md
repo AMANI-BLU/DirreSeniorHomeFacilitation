@@ -34,3 +34,8 @@ Open `/admin` to manage content. Changes save to **localStorage** in your browse
 - **Settings** — export or import JSON backups, or reset to defaults.
 
 For multi-device or production use, export JSON and import on another browser, or connect a hosted API later.
+
+## Supabase setup
+
+A Supabase schema file is available at `supabase/migrations/1_init.sql`.
+Run that SQL in your Supabase project to create the `site_content` table used by the app.

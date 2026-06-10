@@ -1,12 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { formatAdminDate } from "../cms/contentStore.js";
 import { useContent } from "../context/ContentContext.jsx";
+import MessageDialog from "../components/MessageDialog.jsx";
 
 export default function AdminPosts() {
   const { content, updatePost, addPost, deletePost, slugify } = useContent();
   const [search, setSearch] = useState("");
   const [selectedId, setSelectedId] = useState(content.posts[0]?.id ?? "");
   const [draft, setDraft] = useState(null);
+  const [pendingDelete, setPendingDelete] = useState(null);
+  const [dialog, setDialog] = useState({ open: false, type: "info", title: "", message: "", confirmText: "OK", cancelText: null });
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -51,13 +54,35 @@ export default function AdminPosts() {
     const post = addPost();
     setSelectedId(post.id);
     setDraft({ ...post });
+    setDialog({
+      open: true,
+      type: "success",
+      title: "New post created",
+      message: "A new draft post has been added. Start editing it now.",
+      confirmText: "Continue",
+      cancelText: null,
+    });
   };
 
   const removePost = () => {
-    if (!selectedId || !window.confirm("Delete this post?")) return;
-    deletePost(selectedId);
+    if (!selectedId) return;
+    setPendingDelete(selectedId);
+  };
+
+  const confirmDelete = () => {
+    if (!pendingDelete) return;
+    deletePost(pendingDelete);
     setSelectedId("");
     setDraft(null);
+    setPendingDelete(null);
+    setDialog({
+      open: true,
+      type: "success",
+      title: "Post deleted",
+      message: "The selected post has been deleted successfully.",
+      confirmText: "Done",
+      cancelText: null,
+    });
   };
 
   if (!form) {
@@ -171,6 +196,17 @@ export default function AdminPosts() {
           </div>
         </form>
       </div>
+      <MessageDialog
+        open={Boolean(pendingDelete)}
+        title="Delete post"
+        message="Delete this post permanently? This action cannot be undone."
+        type="confirm"
+        confirmText="Delete"
+        cancelText="Cancel"
+        onConfirm={confirmDelete}
+        onClose={() => setPendingDelete(null)}
+      />
+      <MessageDialog {...dialog} onClose={() => setDialog((current) => ({ ...current, open: false }))} />
     </>
   );
 }

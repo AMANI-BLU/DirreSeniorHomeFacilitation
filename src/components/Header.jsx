@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useContent } from "../context/ContentContext.jsx";
 
 const navItems = [
   { to: "/", label: "Home", end: true },
@@ -92,6 +93,11 @@ export default function Header() {
     };
   }, []);
 
+  const { content } = useContent();
+  const site = content.site ?? {};
+  const logo = site.logo || "/assets/docx-media/image6.png";
+  const logoAlt = site.logoAlt || "Dirre Seniors Home Facilitation logo";
+
   return (
     <div
       className={`header-stack${collapsed ? " is-scrolled" : ""}${navOpen ? " is-nav-open" : ""}`}
@@ -110,7 +116,7 @@ export default function Header() {
       </div>
       <header className="site-header" data-header>
         <Link className="brand" to="/" aria-label="Dirre Seniors Home Facilitation home" onClick={closeNav}>
-          <img src="/assets/docx-media/image6.png" alt="Dirre Seniors Home Facilitation logo" />
+          <img src={logo} alt={logoAlt} />
           <span>
             <strong>Dirre Seniors Home</strong>
             <small>Elders: Our Pillars of Respect</small>

@@ -2,6 +2,16 @@ const now = () => new Date().toISOString();
 
 export const defaultContent = {
   version: 3,
+  site: {
+    logo: "/assets/docx-media/image6.png",
+    logoAlt: "Dirre Seniors Home Facilitation logo",
+    socialLinks: [
+      {
+        name: "Facebook",
+        url: "https://www.facebook.com/profile.php?id=61590348581465",
+      },
+    ],
+  },
   posts: [
     {
       id: "post-1",

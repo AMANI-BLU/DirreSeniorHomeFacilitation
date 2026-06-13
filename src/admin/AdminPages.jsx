@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { pageList } from "../cms/defaultContent.js";
 import { useContent } from "../context/ContentContext.jsx";
@@ -43,6 +43,9 @@ export default function AdminPages() {
   const [pageKey, setPageKey] = useState("home");
   const [sectionKey, setSectionKey] = useState("hero");
   const [draft, setDraft] = useState(null);
+  const [imagePreviewSrc, setImagePreviewSrc] = useState("");
+  const [selectedImageFile, setSelectedImageFile] = useState(null);
+  const imageFileRef = useRef(null);
 
   const page = getPage(pageKey);
   const sections = editableSections[pageKey] ?? [{ key: "hero", label: "Page hero" }];
@@ -54,6 +57,22 @@ export default function AdminPages() {
       setDraft(JSON.parse(JSON.stringify(current)));
     }
   }, [pageKey, sectionKey, content]);
+
+  useEffect(() => {
+    if (selectedImageFile) {
+      const objectUrl = URL.createObjectURL(selectedImageFile);
+      setImagePreviewSrc(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl);
+    }
+    setImagePreviewSrc(draft?.image ?? "");
+  }, [selectedImageFile, draft?.image]);
+
+  const handleImageFileChange = (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setSelectedImageFile(file);
+    event.target.value = "";
+  };
 
   const saveSection = () => {
     if (!draft) return;
@@ -262,7 +281,13 @@ export default function AdminPages() {
           {"image" in draft ? (
             <label>
               Image path
-              <input type="text" value={draft.image ?? ""} onChange={(event) => updateField("image", event.target.value)} />
+              <div className="admin-image-input-row">
+                <input type="text" value={draft.image ?? ""} onChange={(event) => updateField("image", event.target.value)} />
+                <button type="button" className="button button-ghost button-small" onClick={() => imageFileRef.current?.click()}>
+                  Choose file
+                </button>
+              </div>
+              <input ref={imageFileRef} type="file" accept="image/*" hidden onChange={handleImageFileChange} />
             </label>
           ) : null}
 
@@ -330,29 +355,53 @@ export default function AdminPages() {
             {draft.heading ? <p><strong>Heading:</strong> {draft.heading}</p> : null}
             {draft.lead ? <p>{draft.lead}</p> : null}
             {draft.body ? <p>{draft.body}</p> : null}
-            {draft.image ? <p><strong>Image path:</strong> {draft.image}</p> : null}
+            {draft.image ? (
+              <div className="admin-image-preview">
+                <strong>Image preview</strong>
+                <img
+                  src={imagePreviewSrc || draft.image}
+                  alt={draft.imageAlt ?? "Preview image"}
+                  onError={() => setImagePreviewSrc("")}
+                />
+                <p className="admin-image-preview-path">
+                  <strong>Image path:</strong> {draft.image}
+                </p>
+                {selectedImageFile ? (
+                  <p className="admin-image-preview-note">
+                    Previewing a local file only. Keep the final image path in the text field before saving.
+                  </p>
+                ) : null}
+              </div>
+            ) : null}
             {draft.imageAlt ? <p><strong>Alt text:</strong> {draft.imageAlt}</p> : null}
             {draft.figcaption ? <p><strong>Caption:</strong> {draft.figcaption}</p> : null}
           </div>
 
-          {"image" in draft ? (
+          {"person" in draft ? (
             <label>
-              Image path
-              <input type="text" value={draft.image ?? ""} onChange={(event) => updateField("image", event.target.value)} />
+              Contact name
+              <input type="text" value={draft.person ?? ""} onChange={(event) => updateField("person", event.target.value)} />
             </label>
           ) : null}
 
-          {"imageAlt" in draft ? (
+          {"position" in draft ? (
             <label>
-              Image alt text
-              <input type="text" value={draft.imageAlt ?? ""} onChange={(event) => updateField("imageAlt", event.target.value)} />
+              Contact role
+              <input type="text" value={draft.position ?? ""} onChange={(event) => updateField("position", event.target.value)} />
             </label>
           ) : null}
 
-          {"figcaption" in draft ? (
+          {"address" in draft ? (
             <label>
-              Caption
-              <input type="text" value={draft.figcaption ?? ""} onChange={(event) => updateField("figcaption", event.target.value)} />
+              Address
+              <input type="text" value={draft.address ?? ""} onChange={(event) => updateField("address", event.target.value)} />
+            </label>
+          ) : null}
+
+          {"tel" in draft ? (
+            <label>
+              Phone number
+              <input type="text" value={draft.tel ?? ""} onChange={(event) => updateField("tel", event.target.value)} />
             </label>
           ) : null}
 

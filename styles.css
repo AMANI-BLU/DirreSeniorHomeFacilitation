@@ -215,13 +215,13 @@ a {
   transition: background 160ms ease;
 }
 
-.nav-cta:hover,
-.nav-cta:focus-visible {
-  color: var(--white) !important;
-  background: #3f6349;
-}
+.site-nav .nav-cta:hover,
+  .site-nav .nav-cta:focus-visible {
+    color: var(--white) !important;
+    background: #3f6349;
+  }
 
-.nav-cta[aria-current="page"] {
+  .site-nav .nav-cta[aria-current="page"] {
   color: var(--white) !important;
   background: var(--green-dark);
 }

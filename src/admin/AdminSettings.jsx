@@ -6,6 +6,8 @@ export default function AdminSettings() {
   const { content, updateSite, resetAll, exportJson, importJson } = useContent();
   const site = content.site ?? {};
   const [siteDraft, setSiteDraft] = useState({ ...site });
+  const [logoPreviewSrc, setLogoPreviewSrc] = useState(site.logo ?? "");
+  const [selectedLogoFile, setSelectedLogoFile] = useState(null);
   const [showResetDialog, setShowResetDialog] = useState(false);
   const [dialog, setDialog] = useState({
     open: false,
@@ -15,14 +17,28 @@ export default function AdminSettings() {
     confirmText: "OK",
     cancelText: null,
   });
+  const logoFileRef = useRef(null);
   const fileRef = useRef(null);
 
   useEffect(() => {
     setSiteDraft({ ...site });
+    setSelectedLogoFile(null);
   }, [site]);
+
+  useEffect(() => {
+    if (selectedLogoFile) {
+      const objectUrl = URL.createObjectURL(selectedLogoFile);
+      setLogoPreviewSrc(objectUrl);
+      return () => URL.revokeObjectURL(objectUrl);
+    }
+    setLogoPreviewSrc(siteDraft.logo ?? "");
+  }, [selectedLogoFile, siteDraft.logo]);
 
   const setSiteField = (field, value) => {
     setSiteDraft((current) => ({ ...current, [field]: value }));
+    if (field === "logo") {
+      setSelectedLogoFile(null);
+    }
   };
 
   const setSocialField = (index, field, value) => {
@@ -70,6 +86,13 @@ export default function AdminSettings() {
     });
   };
 
+  const handleLogoFileChange = (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setSelectedLogoFile(file);
+    event.target.value = "";
+  };
+
   const handleImportFile = async (file) => {
     if (!file) return;
     try {
@@ -100,6 +123,27 @@ export default function AdminSettings() {
           </div>
           <div className="admin-form admin-settings-form">
             <label>
+              Logo image upload
+              <div className="admin-file-input">
+                <button
+                  type="button"
+                  onClick={() => logoFileRef.current?.click()}
+                >
+                  Select logo file
+                </button>
+                <span>
+                  {selectedLogoFile?.name || siteDraft.logo || "No logo selected yet"}
+                </span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  hidden
+                  ref={logoFileRef}
+                  onChange={handleLogoFileChange}
+                />
+              </div>
+            </label>
+            <label>
               Logo image path
               <input
                 type="text"
@@ -108,6 +152,15 @@ export default function AdminSettings() {
                 placeholder="/assets/docx-media/image6.png"
               />
             </label>
+            {logoPreviewSrc ? (
+              <div className="admin-image-preview">
+                <strong>Logo preview</strong>
+                <img
+                  src={logoPreviewSrc}
+                  alt={siteDraft.logoAlt ?? "Logo preview"}
+                />
+              </div>
+            ) : null}
             <label>
               Logo alt text
               <input

@@ -10,17 +10,9 @@ const navItems = [
   { to: "/gallery", label: "Gallery" },
 ];
 
-/* Collapse thresholds.
-   - COLLAPSE_AT: scroll past this → hide the top-bar and shrink the header.
-   - EXPAND_AT:   scroll back above this → re-show the top-bar.
-   The gap (dead-zone) keeps the toggle from bouncing when scrollY flickers
-   across a single threshold (touchpads / smooth scroll / overscroll bounce). */
-const COLLAPSE_AT = 24;
-const EXPAND_AT = 8;
-
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
-  const [collapsed, setCollapsed] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const closeNav = () => {
     setNavOpen(false);
@@ -54,26 +46,11 @@ export default function Header() {
   }, [navOpen]);
 
   useEffect(() => {
-    /* Drive the header state from a single rAF + a single state-update
-       per frame. This is the part that was glitchy before: the previous
-       version had two separate rAFs and updated via setState in scroll
-       callback, which could fire mid-transition when the user hovered
-       near a single threshold. */
-
     let rafId = null;
-    let mounted = true;
 
     const apply = () => {
       rafId = null;
-      if (!mounted) return;
-      const y = window.scrollY;
-      /* Hysteresis: collapse once past COLLAPSE_AT, only re-expand when
-         within EXPAND_AT of the top. The dead-zone stops the toggle
-         from bouncing when scrollY flickers across a single value. */
-      setCollapsed((prev) => {
-        if (prev) return y > EXPAND_AT;
-        return y > COLLAPSE_AT;
-      });
+      setScrolled(window.scrollY > 12);
     };
 
     const onScroll = () => {
@@ -82,12 +59,9 @@ export default function Header() {
       }
     };
 
-    /* Initial read — important for deep-links / restored scroll positions
-       so the header renders the correct state on first paint. */
     apply();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      mounted = false;
       window.removeEventListener("scroll", onScroll);
       if (rafId !== null) cancelAnimationFrame(rafId);
     };
@@ -99,9 +73,7 @@ export default function Header() {
   const logoAlt = site.logoAlt || "Dirre Seniors Home Facilitation logo";
 
   return (
-    <div
-      className={`header-stack${collapsed ? " is-scrolled" : ""}${navOpen ? " is-nav-open" : ""}`}
-    >
+    <div className={`header-stack${scrolled ? " is-scrolled" : ""}${navOpen ? " is-nav-open" : ""}`}>
       <div className="top-bar">
         <div className="top-bar-inner">
           <p className="top-bar-location">Borana, Ethiopia</p>

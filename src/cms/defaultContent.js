@@ -64,6 +64,8 @@ export const defaultContent = {
         title: "Dirre Seniors Home Facilitation",
         description:
           "Dirre Seniors Home Facilitation supports elders in Borana, Ethiopia through a respectful home and community care project.",
+        image: "/assets/photos/photo-23.jpg",
+        keywords: ["elder care", "Borana Ethiopia", "community home", "senior support", "Dirre Seniors Home"],
       },
       hero: {
         image: "/assets/photos/photo-23.jpg",
@@ -121,6 +123,8 @@ export const defaultContent = {
       meta: {
         title: "About | Dirre Seniors Home Facilitation",
         description: "Learn why Dirre Seniors Home Facilitation was created to support elders in Borana, Ethiopia.",
+        image: "/assets/photos/photo-07.jpg",
+        keywords: ["about Dirre Seniors Home", "elder care project", "Borana community", "mission and vision"],
       },
       hero: {
         image: "/assets/photos/photo-07.jpg",
@@ -143,6 +147,8 @@ export const defaultContent = {
       meta: {
         title: "Founder | Dirre Seniors Home Facilitation",
         description: "Founder story for Samuel Galgalo Dadacha and Dirre Seniors Home Facilitation.",
+        image: "/assets/photos/photo-08.jpg",
+        keywords: ["founder story", "Samuel Galgalo Dadacha", "social worker", "Borana elder care"],
       },
       hero: {
         image: "/assets/photos/photo-08.jpg",
@@ -158,6 +164,8 @@ export const defaultContent = {
       meta: {
         title: "Care Center | Dirre Seniors Home Facilitation",
         description: "Explore the rooms, gathering spaces, and first elders of the Dubuluk Care Center.",
+        image: "/assets/photos/photo-20.jpg",
+        keywords: ["care center", "Dubuluk Care Center", "elder care rooms", "Borana support"],
       },
       hero: {
         image: "/assets/photos/photo-20.jpg",
@@ -173,6 +181,8 @@ export const defaultContent = {
         title: "Gallery | Dirre Seniors Home Facilitation",
         description:
           "Photo gallery for Dirre Seniors Home Facilitation, Dubuluk Care Center, project launch, and first elders.",
+        image: "/assets/photos/photo-18.jpg",
+        keywords: ["photo gallery", "Dirre Seniors Home images", "elder care photos", "Borana project gallery"],
       },
       hero: {
         image: "/assets/photos/photo-18.jpg",
@@ -187,6 +197,8 @@ export const defaultContent = {
       meta: {
         title: "Support | Dirre Seniors Home Facilitation",
         description: "Support options for Dirre Seniors Home Facilitation and elder care in Borana, Ethiopia.",
+        image: "/assets/photos/photo-22.jpg",
+        keywords: ["support elder care", "donate Borana", "help Dirre Seniors Home", "community support"],
       },
       hero: {
         image: "/assets/photos/photo-22.jpg",
